@@ -1,5 +1,9 @@
 require 'gosu'
 
+module ZOrder
+	BACKGROUND, HIERO, PLAYER, UI = *0..3
+end
+
 class Player
 	def initialize(localsprite)
 		@image = Gosu::Image.new(localsprite)
@@ -53,6 +57,33 @@ class Player
 	def draw
 		@image.draw_rot(@x, @y, 1, @angle)
 	end
+
+	def score
+    	@score
+  	end
+
+  	def collect_hieros(hieros)
+    	hieros.reject! { |hiero| Gosu.distance(@x, @y, hiero.x, hiero.y) < 35 }
+  	end
+end
+
+class Hiero
+	attr_reader :x,:y
+	def initialize(animation)
+		@animation = animation
+		@color = Gosu::Color::BLACK.dup
+		@color.red = rand(256 - 40) + 40
+    	@color.green = rand(256 - 40) + 40
+    	@color.blue = rand(256 - 40) + 40
+    	@x = rand * 640
+    	@y = rand * 480
+	end
+
+	def draw
+		img = @animation[Gosu.milliseconds / 100 % @animation.size]
+    	img.draw(@x - img.width / 2.0, @y - img.height / 2.0,
+        ZOrder::HIERO, 1, 1, @color, :add)
+	end
 end
 
 class Tela < Gosu::Window
@@ -80,6 +111,11 @@ class Tela < Gosu::Window
     	@player.turn_down
     end
     	@player.move
+    	@player.collect_hieros(@hieros)
+
+    	if rand(100) < 4 and @hieros.size < 25
+    		@hieros.push(Hiero.new(@hiero_img))
+    	end
   	end
 
   	def setPlayer(local)
@@ -87,9 +123,15 @@ class Tela < Gosu::Window
   		@player.setDimension(@tamX,@tamY)
     	@player.warp(320, 660)
   	end
+
+  	def setHieros(local)
+  		@hiero_img = Gosu::Image.load_tiles(local,25,25)
+  		@hieros = Array.new
+  	end
 	
 	def draw
 		@player.draw
+		@hieros.each { |hiero| hiero.draw }
 		@background_image.draw(0,0,0)
 		@font.draw("MOD TESTE - APERTE ESC PARA SAIR",10,10,0)
 	end
@@ -104,5 +146,6 @@ class Tela < Gosu::Window
 end
 
 tela = Tela.new(640,480)
+tela.setHieros("media/star.png")
 tela.setPlayer("media/falcon.png")
 tela.show
