@@ -5,6 +5,7 @@ require_relative "Hiero"
 class Window < Gosu::Window #classe janela
 	class Elemento_txt #elementos da lista de textos
 		attr_accessor :valor
+		attr_accessor :color
 		attr_accessor :posx
 		attr_accessor :posy
 		attr_accessor :posz
@@ -32,13 +33,29 @@ class Window < Gosu::Window #classe janela
 		@game_obj = List.new
 	end
 
-	def setText(text,x,y) #seta textos na janela recebendo a posicao juntamente com o texto como parametro
-		novoelemento = Elemento_txt.new #encadeia em uma lista
-		novoelemento.font = Gosu::Font.new(20)
-		novoelemento.posx = x
-		novoelemento.posy = y
-		novoelemento.posz = 0
-		novoelemento.valor = text
+	def setText(*args) #seta textos na janela recebendo a posicao juntamente com o texto como parametro
+		if args.size == 4 then
+			novoelemento = Elemento_txt.new #encadeia em uma lista
+			novoelemento.font = Gosu::Font.new(20)
+			novoelemento.valor = args[0]
+			novoelemento.color = args[1]
+			novoelemento.posx = args[2]
+			novoelemento.posy = args[3]
+			novoelemento.posz = 0
+		elsif args.size == 3 then
+			novoelemento = Elemento_txt.new #encadeia em uma lista
+			novoelemento.font = Gosu::Font.new(20)
+			novoelemento.valor = args[0]
+			novoelemento.color = Gosu::Color::WHITE
+			novoelemento.posx = args[1]
+			novoelemento.posy = args[2]
+			novoelemento.posz = 0
+		end
+
+		if ((args.size > 4) && (args.size < 3))
+			return
+		end
+
 		if @lista_t.ultimo.nil?
 			@lista_t.ultimo = novoelemento
 		else
@@ -85,7 +102,7 @@ class Window < Gosu::Window #classe janela
 		if !@lista_t.primeiro.nil?
 			no = @lista_t.primeiro
 			while(!no.nil?)
-				no.font.draw(no.valor,no.posx,no.posy,no.posz);
+				no.font.draw(no.valor,no.posx,no.posy,no.posz,1.0,1.0,no.color);
 				no = no.proximo
 			end
 		end

@@ -6,7 +6,7 @@ class Falcon < GameObject
 	def initialize(x,y,z)
 		@player = Sprite.new("falcon.png")
 		@x, @y, @z = x, y, z
-		@height = 2
+		@height = 10
 		@angulo = 45
 		@player.setGameObject(self)
 		@areah , @areaw = 640, 480
@@ -29,7 +29,7 @@ class Falcon < GameObject
 	end
 
 	def turn_up
-		if(@height < 2)
+		if(@height < 10)
 			@height += 1
 		end
 	end
