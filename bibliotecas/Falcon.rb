@@ -1,66 +1,66 @@
 require 'gosu'
 require_relative "GameObject"
 require_relative "Sprite"
+require_relative "Box"
 
 class Falcon < GameObject
 	def initialize(x,y,z)
-		@player = Sprite.new("falcon.png")
-		@x, @y, @z = x, y, z
-		@height = 10
+		@box = Box.new(x,y,640,480)
+		@box.setSprite("falcon.png")
+		@shadow = Box.new(x,y+10,640,480)
+		@shadow.setSprite("shadow.png")
 		@angulo = 45
-		@player.setGameObject(self)
-		@areah , @areaw = 640, 480
 	end
 
 	def turn_left
-		@x -= Gosu.offset_x(@angulo, 4.5)
-		@y += Gosu.offset_y(@angulo, 4.5)
+		@box.x -= Gosu.offset_x(@angulo, 4.5)
+		@box.y += Gosu.offset_y(@angulo, 4.5)
+		@shadow.x -= Gosu.offset_x(@angulo, 4.5)
+		@shadow.y += Gosu.offset_y(@angulo, 4.5)
 	end
 
 	def turn_right
-		@x += Gosu.offset_x(@angulo, 4.5)
-		@y -= Gosu.offset_y(@angulo, 4.5)
+		@box.x += Gosu.offset_x(@angulo, 4.5)
+		@box.y -= Gosu.offset_y(@angulo, 4.5)
+		@shadow.x += Gosu.offset_x(@angulo, 4.5)
+		@shadow.y -= Gosu.offset_y(@angulo, 4.5)
 	end
 
 	def turn_down
-		if(@height > 0)
-			@height -=1
+		if @box.y < @shadow.y
+			@box.y -= Gosu.offset_y(@angulo, 4.5)
 		end
 	end
 
 	def turn_up
-		if(@height < 10)
-			@height += 1
-		end
+		@box.y += Gosu.offset_y(@angulo, 4.5)
 	end
 
-	def setAreaWindow(h,w)
-		@areah = h
-		@areaw = w
+	def setAreaWindow(height,width)
+		@box.h = height
+		@box.w = width
+		@shadow.h = height
+		@shadow.w = width
 	end
 
 	def update
-		if (Gosu.button_down? Gosu::KB_LEFT) && ((@x > -2.95)&&(@y > -2.95))
+		if (Gosu.button_down? Gosu::KB_LEFT) && ((@box.x > -2.95)&&(@box.y > -2.95))&&((@shadow.x > -2.95)&&(@shadow.y > -2.95))
     	  	turn_left
     	end
-    	if (Gosu.button_down? Gosu::KB_RIGHT) && ((@x <= 0.93*@areah)&&(@y <= 0.93*@areaw))
+    	if (Gosu.button_down? Gosu::KB_RIGHT) && ((@box.x <= 0.93*@box.h)&&(@box.y <= 0.93*@box.w))&&((@shadow.x <= 0.93*@shadow.h)&&(@shadow.y <= 0.93*@shadow.w))
       		turn_right
     	end
-    	if (Gosu.button_down? Gosu::KB_UP) && ((@x <= 0.93*@areah)&&(@y > -2.95))
+    	if (Gosu.button_down? Gosu::KB_UP) && ((@box.x <= 0.93*@box.h)&&(@box.y > -2.95))
     		turn_up
     	end
-    	if (Gosu.button_down? Gosu::KB_DOWN) && ((@x > -2.95)&&(@y <= 0.93*@areaw))
+    	if (Gosu.button_down? Gosu::KB_DOWN) && ((@box.x > -2.95)&&(@box.y <= 0.93*@box.w))
     		turn_down
     	end
-    	@player.setGameObject(self)
-    	@player.draw_shadow(@x,@y,@height)
-    	@player.render
+    	@shadow.updateBox
+    	@box.updateBox
 	end
 
 	def notifyColision(gameobject)
-		if Gosu.distance(@x,@y,gameobject.x,gameobject.y) < 35
-			return true
-		end
-		return false
+		return @box.overlapsWith(gameobject)
 	end
 end

@@ -31,6 +31,7 @@ class Window < Gosu::Window #classe janela
 		@tamY = dimY
 		@lista_t = List.new #cria duas listas uma para as caixas de texto e outra pros objetos do jogo
 		@game_obj = List.new
+		@players = List.new
 	end
 
 	def setText(*args) #seta textos na janela recebendo a posicao juntamente com o texto como parametro
@@ -69,7 +70,7 @@ class Window < Gosu::Window #classe janela
 	end
 
 	def update
-
+		
 	end
 
 	def setBackground(nomearquivo) #recebe um nome de um arquivo de imagem e o coloca como fundo da tela
@@ -92,7 +93,24 @@ class Window < Gosu::Window #classe janela
 		end
 	end
 
+	def setPlayer(player)
+		novoelemento = Elemento_obj.new
+		novoelemento.gameobj = GameObject.new
+		novoelemento.gameobj = player
+		if @players.ultimo.nil?
+			@players.ultimo = novoelemento
+		else
+			@players.ultimo.proximo = novoelemento
+			@players.ultimo = novoelemento
+		end
+
+		if @players.primeiro.nil?
+			@players.primeiro = novoelemento
+		end
+	end
+
 	def render
+		
 	end
 
 	def draw #desenha os objetos na tela
@@ -106,11 +124,26 @@ class Window < Gosu::Window #classe janela
 				no = no.proximo
 			end
 		end
-		if !@game_obj.primeiro.nil?
-			no = @game_obj.primeiro
-			while(!no.nil?)
-				no.gameobj.update
-				no = no.proximo
+		if !@game_obj.primeiro.nil? && !@players.primeiro.nil?
+			player = @players.primeiro
+			while(!player.nil?)
+				no = @game_obj.primeiro
+				while(!no.nil?)
+					if !no.gameobj.notifyColision(player.gameobj) then
+						no.gameobj.update
+						ant = no
+						no = no.proximo
+					else
+						aux = no.proximo
+						if !ant.nil? then
+							ant.proximo = aux
+						end
+						no.gameobj.close
+						no = aux
+					end
+				end
+				player.gameobj.update
+				player = player.proximo
 			end
 		end
 	end

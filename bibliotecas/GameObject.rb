@@ -1,7 +1,10 @@
 require 'gosu'
+require_relative "Box"
+require_relative "Sprite"
+
 
 class GameObject
-	attr_reader :x,:y,:z
+	attr_reader :box,:sprite,:arr_gameobj
 
 	def initialize
 	end
