@@ -5,8 +5,8 @@ require_relative "Box"
 
 class Hiero < GameObject
 	def initialize(x,y,z)
-		@box = Box.new(x,y,640,480)
-		@box.setSprite("hiero.png")
+		@sprite = "hiero.png"
+		super (x, y, z)
 	end
 
 	def close

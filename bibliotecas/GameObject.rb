@@ -4,15 +4,33 @@ require_relative "Sprite"
 
 
 class GameObject
-	attr_reader :box,:sprite,:arr_gameobj
+	attr_accessor :box,:sprite,:arr_gameobj
 
-	def initialize
+	def initialize(x = 0, y = 0, z = 0)
+		height = 0
+		width = 0
+
+		if (!@sprite.nil?)
+			if (!@sprite.imagem.nil?)
+				height = @sprite.imagem.height
+				width = @sprite.imagem.width
+			end
+		end
+		@box = Box.new(x, y, width, height)
+	end
+
+	def sprite=(strimg)
+		@sprite = Sprite.new(strimg)
 	end
 
 	def close
 	end
 
 	def update
+	end
+
+	def render
+		@sprite.render(@box.x, @box.y)
 	end
 
 	def isEqual(gameobj)

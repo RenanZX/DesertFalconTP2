@@ -13,84 +13,45 @@ class Window < Gosu::Window #classe janela
 		attr_accessor :proximo
 	end
 
-	class Elemento_obj #elementos da lista de objetos do jogo
-		attr_accessor :gameobj
-		attr_accessor :proximo
-	end
-
-	class List #lista
-		attr_accessor :primeiro
-		attr_accessor :ultimo
-	end
-
-
-	def initialize(dimX,dimY) #inicializa a janela recebendo as dimensões como parametro
-		super dimX,dimY
+	def initialize(largura, altura) #inicializa a janela recebendo as dimensões como parametro
+		super largura, altura
 		self.caption = "Desert Ruby" #titulo da janela
-		@tamX = dimX #dimensoes da janela
-		@tamY = dimY
-		@lista_t = List.new #cria duas listas uma para as caixas de texto e outra pros objetos do jogo
-		@game_obj = List.new
-		@players = List.new
+
+		@lista_hieros = Array.new()
+		@player = Falcon.new(80 60 2)
+		@lista_textos = Array.new #cria duas listas uma para as caixas de texto e outra pros objetos do jogo
 	end
 
-	def setText(*args) #seta textos na janela recebendo a posicao juntamente com o texto como parametro
-		if args.size == 4 then
-			novoelemento = Elemento_txt.new #encadeia em uma lista
-			novoelemento.font = Gosu::Font.new(20)
-			novoelemento.valor = args[0]
-			novoelemento.color = args[1]
-			novoelemento.posx = args[2]
-			novoelemento.posy = args[3]
-			novoelemento.posz = 0
-		elsif args.size == 3 then
-			novoelemento = Elemento_txt.new #encadeia em uma lista
-			novoelemento.font = Gosu::Font.new(20)
-			novoelemento.valor = args[0]
-			novoelemento.color = Gosu::Color::WHITE
-			novoelemento.posx = args[1]
-			novoelemento.posy = args[2]
-			novoelemento.posz = 0
+	#seta textos na janela recebendo a posicao juntamente com o texto como parametro
+	def setText(texto, posX, posY, color = Gosu::Color::WHITE, font = Gosu::Font.new(20)) 
+		if (font.height > 40 || font.height < 10) 
+			font.height = 20
 		end
 
-		if ((args.size > 4) && (args.size < 3))
-			return
-		end
+		novoelemento = Elemento_txt.new #encadeia em uma lista
+		novoelemento.font = font
+		novoelemento.valor = texto
+		novoelemento.color = color
+		novoelemento.posx = posX
+		novoelemento.posy = posY
+		novoelemento.posz = 0
 
-		if @lista_t.ultimo.nil?
-			@lista_t.ultimo = novoelemento
-		else
-			@lista_t.ultimo.proximo = novoelemento
-			@lista_t.ultimo = novoelemento
-		end
-
-		if @lista_t.primeiro.nil?
-			@lista_t.primeiro = novoelemento
-		end
+		@lista_textos << novoelemento
 	end
 
 	def update
-		
+		@player.update
+
+	  @hiero.move
+	  @falcon.move
 	end
 
 	def setBackground(nomearquivo) #recebe um nome de um arquivo de imagem e o coloca como fundo da tela
 		@imagem_fundo = Gosu::Image.new("#{File.expand_path(File.dirname(__FILE__))}/media/#{nomearquivo}")
 	end
 
-	def setGameObject(gameobj) #recebe e seta um objeto do jogo como parametro na janela
-		novoelemento = Elemento_obj.new
-		novoelemento.gameobj = GameObject.new
-		novoelemento.gameobj = gameobj
-		if @game_obj.ultimo.nil?
-			@game_obj.ultimo = novoelemento
-		else
-			@game_obj.ultimo.proximo = novoelemento
-			@game_obj.ultimo = novoelemento
-		end
-
-		if @game_obj.primeiro.nil?
-			@game_obj.primeiro = novoelemento
-		end
+	def add_hiero hiero
+		@lista_hieros << hiero
 	end
 
 	def setPlayer(player)
@@ -109,43 +70,18 @@ class Window < Gosu::Window #classe janela
 		end
 	end
 
-	def render
-		
-	end
-
 	def draw #desenha os objetos na tela
-		if !@imagem_fundo.nil?
+		if (!@imagem_fundo.nil?)
 			@imagem_fundo.draw(0,0,0)
 		end
-		if !@lista_t.primeiro.nil?
-			no = @lista_t.primeiro
-			while(!no.nil?)
-				no.font.draw(no.valor,no.posx,no.posy,no.posz,1.0,1.0,no.color);
-				no = no.proximo
-			end
+		
+		@lista_hieros.each do |hiero|
+			hiero.render 
 		end
-		if !@game_obj.primeiro.nil? && !@players.primeiro.nil?
-			player = @players.primeiro
-			while(!player.nil?)
-				no = @game_obj.primeiro
-				while(!no.nil?)
-					if !no.gameobj.notifyColision(player.gameobj) then
-						no.gameobj.update
-						ant = no
-						no = no.proximo
-					else
-						aux = no.proximo
-						if !ant.nil? then
-							ant.proximo = aux
-						end
-						no.gameobj.close
-						no = aux
-					end
-				end
-				player.gameobj.update
-				player = player.proximo
-			end
-		end
+
+		@player.render
+
+
 	end
 
 	def button_down(id) #identifica os botoes que sao apertados pelo usuario
@@ -155,4 +91,11 @@ class Window < Gosu::Window #classe janela
 			super
 		end
 	end
+
+	private 
+		def draw_text
+			@lista_textos.each do |item|
+				item.font.draw item.valor item.posX item.posY item.posZ 1.0 1.0 item.color
+			end
+		end
 end

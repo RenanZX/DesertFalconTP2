@@ -3,42 +3,42 @@ require_relative "Sprite"
 require_relative "GameObject"
 
 class Box
-	attr_reader :x,:y,:h,:w
+	attr_accessor :x,:y,:h,:w
 	def initialize(x,y,h,w)
 		@x, @y, @h, @w = x, y, h, w
 	end
 
-	def x=(posx)
-		@x = posx
-	end
+	# def x=(posx)
+	# 	@x = posx
+	# end
 
-	def x
-		return @x
-	end
+	# def x
+	# 	return @x
+	# end
 
-	def y=(posy)
-		@y = posy
-	end
+	# def y=(posy)
+	# 	@y = posy
+	# end
 
-	def y
-		return @y
-	end
+	# def y
+	# 	return @y
+	# end
 
-	def h=(posh)
-		@h = posh
-	end
+	# def h=(posh)
+	# 	@h = posh
+	# end
 
-	def h
-		return @h
-	end
+	# def h
+	# 	return @h
+	# end
 
-	def w=(posw)
-		@w = posw
-	end
+	# def w=(posw)
+	# 	@w = posw
+	# end
 
-	def w
-		return @w
-	end
+	# def w
+	# 	return @w
+	# end
 
 	def close
 	end
