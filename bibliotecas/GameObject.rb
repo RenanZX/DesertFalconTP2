@@ -41,6 +41,11 @@ class GameObject
 	def isDead
 	end
 
-	def notifyColision(gameobj)
+	def notity_colision(gameobj)
+		if (@z == gameobj.z)
+			return @box.overlaps_with gameobj
+		end
+
+		return false
 	end
 end

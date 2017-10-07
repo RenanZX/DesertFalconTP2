@@ -11,9 +11,14 @@ class Box
 	def close
 	end
 
-	def overlapsWith(gameobj)
-			if !gameobj.nil? && !gameobj.box.nil? then
-				if Gosu.distance(@x,@y,gameobj.box.x,gameobj.box.y) < 35
+	def overlaps_with(gameobj)
+			if !gameobj.nil? && !gameobj.box.nil?
+				other_box = gameobj.box
+				if (@x < other_box.x + other_box.w &&
+					@x + @w > other_box.x &&
+					@y < other_box.y + other_box.h &&
+					@h + @y > other_box.y) 
+					
 					return true
 				end
 			end
