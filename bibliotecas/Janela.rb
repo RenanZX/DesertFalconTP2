@@ -28,6 +28,7 @@ class Window < Gosu::Window #classe janela
 		end
 
 		calculate_colisions
+		remove_unecessary_objs
 	end
 
 	def set_background(nomearquivo) #recebe um nome de um arquivo de imagem e o coloca como fundo da tela
@@ -80,5 +81,16 @@ class Window < Gosu::Window #classe janela
 			 end
 		end
 
+		def remove_unecessary_objs
+			$i = 0
+			while $i < @lista_hieros.length do
+				$hiero = @lista_hieros[$i]
 
+				if $hiero.box.x < -20
+					@lista_hieros.delete_at $i
+				end
+
+				$i +=1
+			end
+		end
 end
