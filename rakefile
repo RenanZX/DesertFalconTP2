@@ -1,9 +1,21 @@
 task :default => :executar
 
+task :verifygosu do
+	if !sh"gem list -i 'gosu'" then
+		sh"sudo apt-get install build-essential libsdl2-dev libsdl2-ttf-dev libpango1.0-dev \
+                     libgl1-mesa-dev libopenal-dev libsndfile-dev libmpg123-dev \
+                     libgmp-dev
+
+        gem install gosu
+        sudo gem install gosu"
+	end
+end
+
 task :executar do
 	if !File.exists?("mygame.rb")
 		puts "Erro mygame nao encontrado"
 	else
+		task :verifygosu
 		ruby "mygame.rb"
 	end
 end
