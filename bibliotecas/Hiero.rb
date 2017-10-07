@@ -5,8 +5,8 @@ require_relative "Box"
 
 class Hiero < GameObject
 	def initialize(x,y,z)
-		@sprite = "hiero.png"
-		super (x, y, z)
+		@sprite = Sprite.new "hiero.png"
+		super
 	end
 
 	def close
@@ -21,9 +21,6 @@ class Hiero < GameObject
 
 	def update
 		move
-		if !@box.nil?
-			@box.updateBox
-		end
 	end
 
 	def notifyColision(gameobject)

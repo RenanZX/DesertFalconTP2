@@ -5,9 +5,15 @@ require_relative "Box"
 
 class Falcon < GameObject
 	def initialize(x,y,z)
-		@sprite = Sprite.new("shadow.png")
-		@shadow.setSprite("shadow.png")
-		super (x, y, z)
+		@sprite = Sprite.new "falcon.png"
+		@shadow = Sprite.new "shadow.png"
+		@velx = 0
+		@vely = 0
+
+		@minX = 35
+		@minY = (480 - 50)
+		
+		super
 	end
 
 	def update
@@ -19,37 +25,44 @@ class Falcon < GameObject
 			up()
 	  	elsif Gosu.button_down? Gosu::KB_DOWN or Gosu::button_down? Gosu::GP_DOWN
 			down()	
-	  	end
+		end
+		  
+		move
 	end
 
 	def notifyColision(gameobject)
 		return @box.overlapsWith(gameobject)
 	end
 
+	def render
+		render_shadow
+		super
+	end
+
 	private 
 		def rigth()
-			if @y < 435
+			if  @box.y < @minY
 				@velx = Gosu.offset_x(135, 5)
 				@vely = Gosu.offset_y(135, 5)
 			end	
 		end
 
 		def left()
-			if @y > 35
+			if @box.x > @minX
 				@velx = Gosu.offset_x(315, 5)
 				@vely = Gosu.offset_y(315, 5)
 			end	
 		end
 
 		def up()
-			if(@height < 2)
-				@height += 1
+			if(@z < 2)
+				@z += 1
 			end	
 		end
 
 		def down()
-			if(@height > 0)
-				@height -=1
+			if(@z > 0)
+				@z -=1
 			end	
 		end
 
@@ -61,7 +74,7 @@ class Falcon < GameObject
 			@vely *= 0.75	
 		end
 
-		def draw_shadow
-			@sprite.draw_shadow(@x, @y, @height)
+		def render_shadow
+			@shadow.imagem.draw(@box.x, @box.y, 0)
 		end	
 end

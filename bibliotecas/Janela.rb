@@ -18,7 +18,10 @@ class Window < Gosu::Window #classe janela
 		self.caption = "Desert Ruby" #titulo da janela
 
 		@lista_hieros = Array.new()
-		@player = Falcon.new(80 60 2)
+		falconX = 80
+		falconY = altura - 150
+		falconZ = 0
+		@player = Falcon.new(falconX, falconY, falconZ)
 		@lista_textos = Array.new #cria duas listas uma para as caixas de texto e outra pros objetos do jogo
 	end
 
@@ -42,8 +45,9 @@ class Window < Gosu::Window #classe janela
 	def update
 		@player.update
 
-	  @hiero.move
-	  @falcon.move
+		@lista_hieros.each do |hiero|
+			hiero.update
+		end
 	end
 
 	def setBackground(nomearquivo) #recebe um nome de um arquivo de imagem e o coloca como fundo da tela
@@ -79,6 +83,8 @@ class Window < Gosu::Window #classe janela
 			hiero.render 
 		end
 
+		draw_text
+
 		@player.render
 
 
@@ -95,7 +101,7 @@ class Window < Gosu::Window #classe janela
 	private 
 		def draw_text
 			@lista_textos.each do |item|
-				item.font.draw item.valor item.posX item.posY item.posZ 1.0 1.0 item.color
+				# item.font.draw item.valor item.posx item.posy item.posz 1 1 item.color
 			end
 		end
 end

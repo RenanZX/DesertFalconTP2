@@ -12,7 +12,7 @@ class Sprite
 
 	def render (posX = 0, posY = 0, z = 0)
 		if (!@imagem.nil?)
-			@imagem.draw(postX, posY, z)
+			@imagem.draw(posX, posY, z)
 		end
 	end
 
