@@ -1,8 +1,8 @@
 task :default => :executar
 
 task :verifygosu do
-	if !sh"gem list -i 'gosu'" then
-		sh"sudo apt-get install build-essential libsdl2-dev libsdl2-ttf-dev libpango1.0-dev \
+	if !system "gem list -i 'gosu' > /dev/null" then
+		system "sudo apt-get install build-essential libsdl2-dev libsdl2-ttf-dev libpango1.0-dev \
                      libgl1-mesa-dev libopenal-dev libsndfile-dev libmpg123-dev \
                      libgmp-dev
 
@@ -15,7 +15,7 @@ task :executar do
 	if !File.exists?("mygame.rb")
 		puts "Erro mygame nao encontrado"
 	else
-		task :verifygosu
+		Rake::Task[:verifygosu].execute
 		ruby "mygame.rb"
 	end
 end
