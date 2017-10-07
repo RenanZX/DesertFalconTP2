@@ -1,66 +1,80 @@
 require 'gosu'
 require_relative "GameObject"
 require_relative "Sprite"
+require_relative "Box"
 
 class Falcon < GameObject
 	def initialize(x,y,z)
-		@player = Sprite.new("falcon.png")
-		@x, @y, @z = x, y, z
-		@height = 2
-		@angulo = 45
-		@player.setGameObject(self)
-		@areah , @areaw = 640, 480
-	end
+		@sprite = Sprite.new "falcon.png"
+		@shadow = Sprite.new "shadow.png"
+		@velx = 0
+		@vely = 0
 
-	def turn_left
-		@x -= Gosu.offset_x(@angulo, 4.5)
-		@y += Gosu.offset_y(@angulo, 4.5)
-	end
-
-	def turn_right
-		@x += Gosu.offset_x(@angulo, 4.5)
-		@y -= Gosu.offset_y(@angulo, 4.5)
-	end
-
-	def turn_down
-		if(@height > 0)
-			@height -=1
-		end
-	end
-
-	def turn_up
-		if(@height < 2)
-			@height += 1
-		end
-	end
-
-	def setAreaWindow(h,w)
-		@areah = h
-		@areaw = w
+		@minX = 35
+		@minY = (480 - 50)
+		
+		super
 	end
 
 	def update
-		if (Gosu.button_down? Gosu::KB_LEFT) && ((@x > -2.95)&&(@y > -2.95))
-    	  	turn_left
-    	end
-    	if (Gosu.button_down? Gosu::KB_RIGHT) && ((@x <= 0.93*@areah)&&(@y <= 0.93*@areaw))
-      		turn_right
-    	end
-    	if (Gosu.button_down? Gosu::KB_UP) && ((@x <= 0.93*@areah)&&(@y > -2.95))
-    		turn_up
-    	end
-    	if (Gosu.button_down? Gosu::KB_DOWN) && ((@x > -2.95)&&(@y <= 0.93*@areaw))
-    		turn_down
-    	end
-    	@player.setGameObject(self)
-    	@player.draw_shadow(@x,@y,@height)
-    	@player.render
+		if Gosu.button_down? Gosu::KB_RIGHT or Gosu::button_down? Gosu::GP_RIGHT
+			rigth()
+		elsif Gosu.button_down? Gosu::KB_LEFT or Gosu::button_down? Gosu::GP_LEFT
+			left()	
+	  	elsif Gosu.button_down? Gosu::KB_UP or Gosu::button_down? Gosu::GP_UP
+			up()
+	  	elsif Gosu.button_down? Gosu::KB_DOWN or Gosu::button_down? Gosu::GP_DOWN
+			down()	
+		end
+		  
+		move
 	end
 
 	def notifyColision(gameobject)
-		if Gosu.distance(@x,@y,gameobject.x,gameobject.y) < 35
-			return true
-		end
-		return false
+		return @box.overlapsWith(gameobject)
 	end
+
+	def render
+		render_shadow
+		super
+	end
+
+	private 
+		def rigth()
+			if  @box.y < @minY
+				@velx = Gosu.offset_x(135, 5)
+				@vely = Gosu.offset_y(135, 5)
+			end	
+		end
+
+		def left()
+			if @box.x > @minX
+				@velx = Gosu.offset_x(315, 5)
+				@vely = Gosu.offset_y(315, 5)
+			end	
+		end
+
+		def up()
+			if(@z < 2)
+				@z += 1
+			end	
+		end
+
+		def down()
+			if(@z > 0)
+				@z -=1
+			end	
+		end
+
+		def move 
+			@box.x += @velx
+			@box.y += @vely
+
+			@velx *= 0.75
+			@vely *= 0.75	
+		end
+
+		def render_shadow
+			@shadow.imagem.draw(@box.x, @box.y, 0)
+		end	
 end
