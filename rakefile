@@ -1,0 +1,9 @@
+task :default => :executar
+
+task :executar do
+	if !File.exists?("mygame.rb")
+		puts "Erro mygame nao encontrado"
+	else
+		ruby "mygame.rb"
+	end
+end
