@@ -17,8 +17,8 @@ class Window < Gosu::Window #classe janela
 		super largura, altura
 		self.caption = "Desert Ruby" #titulo da janela
 
-		@lista_hieros = Array.new()
-		@player = Falcon.new(80 60 2)
+		@lista_hieros = Array.new
+		@player = Falcon.new(80,altura-150,0)
 		@lista_textos = Array.new #cria duas listas uma para as caixas de texto e outra pros objetos do jogo
 	end
 
@@ -40,10 +40,18 @@ class Window < Gosu::Window #classe janela
 	end
 
 	def update
+		@lista_hieros.each do |hiero|
+			hiero.update
+		end
 		@player.update
 
-	  @hiero.move
-	  @falcon.move
+		$i = 0
+		while $i < @lista_hieros.length do
+			if @player.notifyColision(@lista_hieros[$i]) then
+				@lista_hieros.delete_at $i
+			end
+			$i +=1
+		end
 	end
 
 	def setBackground(nomearquivo) #recebe um nome de um arquivo de imagem e o coloca como fundo da tela
@@ -54,34 +62,17 @@ class Window < Gosu::Window #classe janela
 		@lista_hieros << hiero
 	end
 
-	def setPlayer(player)
-		novoelemento = Elemento_obj.new
-		novoelemento.gameobj = GameObject.new
-		novoelemento.gameobj = player
-		if @players.ultimo.nil?
-			@players.ultimo = novoelemento
-		else
-			@players.ultimo.proximo = novoelemento
-			@players.ultimo = novoelemento
-		end
-
-		if @players.primeiro.nil?
-			@players.primeiro = novoelemento
-		end
-	end
-
 	def draw #desenha os objetos na tela
 		if (!@imagem_fundo.nil?)
 			@imagem_fundo.draw(0,0,0)
 		end
-		
+
 		@lista_hieros.each do |hiero|
-			hiero.render 
+			hiero.render
 		end
 
 		@player.render
-
-
+		draw_text
 	end
 
 	def button_down(id) #identifica os botoes que sao apertados pelo usuario
@@ -95,7 +86,7 @@ class Window < Gosu::Window #classe janela
 	private 
 		def draw_text
 			@lista_textos.each do |item|
-				item.font.draw item.valor item.posX item.posY item.posZ 1.0 1.0 item.color
+				item.font.draw(item.valor,item.posx,item.posy,item.posz,1.0,1.0,item.color)
 			end
 		end
 end
