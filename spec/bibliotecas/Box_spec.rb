@@ -36,7 +36,5 @@ describe "Box" do
             expect(box.overlaps_with game_object).to be_falsey
         end
     end
-    
-
 end
 
