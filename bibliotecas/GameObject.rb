@@ -4,7 +4,7 @@ require_relative "Sprite"
 
 
 class GameObject
-	attr_accessor :box, :sprite, :arr_gameobj, :z
+	attr_accessor :box, :sprite, :z
 
 	def initialize(x = 0, y = 0, z = 0)
 		height = 0
