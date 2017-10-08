@@ -10,7 +10,7 @@ O programa consiste em criar um jogo de tiro 8-bit inspirado no título de mesmo
 
 4. digite o comando <b>rake</b> e aguarde até que a instalação esteja completa, ao acabar o jogo será executado automaticamente
 
-### Instruções de Execução dos testes
+## Instruções de Execução dos testes
 1. Certifique-se de que a gema rspec estja instalada utilizando o comando 'gem list -i "rspec"',
 caso contrário instale usando o comando 'gem install rspec'
 
