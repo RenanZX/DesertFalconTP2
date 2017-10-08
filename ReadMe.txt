@@ -1,11 +1,11 @@
 Universidade de Brasilia 
 Instituto de Ciencias Exatas
 Departamento de Ciencia da Computacao
-Técnicas de Programação 2 – 2/2017
+Tï¿½cnicas de Programaï¿½ï¿½o 2 ï¿½ 2/2017
 Alunos: Felipe Silva de Sousa Franco
 	Renan Godoi de Medeiros
-	João Gabriel Lima Neves
-	Matheus Rodrigues Guimarães
+	Joï¿½o Gabriel Lima Neves
+	Matheus Rodrigues Guimarï¿½es
 
 Matricula:
 	15/0125071
@@ -14,20 +14,33 @@ Matricula:
 	15/0141661
 
 Turma: A
-Versão Ruby: ruby 2.3.3p222 (2016-11-21 revision 56859) [i386-mingw32]
+Versï¿½o Ruby: ruby 2.3.3p222 (2016-11-21 revision 56859) [i386-mingw32]
 
-#### Instruções de Compilação e Execução do programa
+#### Instruï¿½ï¿½es de Compilaï¿½ï¿½o e Execuï¿½ï¿½o do programa
 
-1.Certifique-se que o ruby esteja instalado na sua máquina ultilizando o comando 'ruby -v' 
-caso haja alguma mensagem de erro vá até esta pagina web https://www.ruby-lang.org/pt/documentation/installation/ 
-e instale-o seguindo os procedimentos necessários para instalação
+1.Certifique-se que o ruby esteja instalado na sua mï¿½quina ultilizando o comando 'ruby -v' 
+caso haja alguma mensagem de erro vï¿½ atï¿½ esta pagina web https://www.ruby-lang.org/pt/documentation/installation/ 
+e instale-o seguindo os procedimentos necessï¿½rios para instalaï¿½ï¿½o
 
 2.Certifique-se de que a gema do rake esteja instalada ultilizando o comando 'gem list -i "rake"',
-caso contrário instale usando o comando 'gem install rake'
+caso contrï¿½rio instale usando o comando 'gem install rake'
 
-3.siga para a pasta onde está localizado os arquivos do jogo ultilizando o terminal
+3.Siga para a pasta onde estï¿½ localizado os arquivos do jogo ultilizando o terminal
 
-4.digite o comando rake e aguarde até que a instalação esteja completa, 
-ao acabar o jogo será executado automaticamente
+4.Digite o comando rake e aguarde atï¿½ que a instalaï¿½ï¿½o esteja completa, 
+ao acabar o jogo serï¿½ executado automaticamente
+
+### InstruÃ§Ãµes de ExecuÃ§Ã£o dos testes
+1. Certifique-se de que a gema rspec estja instalada utilizando o comando 'gem list -i "rspec"',
+caso contrÃ¡rio instale usando o comando 'gem install rspec'
+
+2.Siga para a pasta onde estÃ¡ localizado os arquivos do jogo utilizando o terminal
+
+3.Digite o comando 'rspec spec/bibliotecas/NOME_ARQUIVO', substituindo o NOME_ARQUIVO pelo nome do arquivo
+que se deseja rodar o rspec
+Ex: 'rspec spec/bibliotecas/Falcon_spec.rb'
+
+4.Opcional: pode ser adicionada a flag '--format documentation' para gerar um relatÃ³rio mais detalhado
+Ex: 'rspec spec/bibliotecas/Falcon_spec.rb  --format documentation'
 
 #### Link do projeto github:https://github.com/RenanZX/DesertFalconTP2
