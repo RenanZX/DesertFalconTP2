@@ -17,7 +17,7 @@ class GameObject
 			end
 		end
 		@box = Box.new(x, y, width, height)
-		@pixelsHeight = 40;
+		@pixelsHeight = 40
 	end
 
 	def close
