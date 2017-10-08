@@ -30,10 +30,6 @@ class Falcon < GameObject
 		move
 	end
 
-	def notifyColision(gameobject)
-		return @box.overlapsWith(gameobject)
-	end
-
 	def render
 		render_shadow
 		super

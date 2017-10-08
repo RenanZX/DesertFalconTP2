@@ -18,7 +18,6 @@ class Box
 					@x + @w > other_box.x &&
 					@y < other_box.y + other_box.h &&
 					@h + @y > other_box.y) 
-					
 					return true
 				end
 			end

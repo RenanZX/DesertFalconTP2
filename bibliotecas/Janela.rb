@@ -71,26 +71,26 @@ class Window < Gosu::Window #classe janela
 		end
 
 		def calculate_colisions
-			$i = 0
-			while $i < @lista_hieros.length do
-				if (@player.notity_colision @lista_hieros[$i])
-					@lista_hieros.delete_at $i
+			i = 0
+			while i < @lista_hieros.length do
+				if (@player.notity_colision @lista_hieros[i])
+					@lista_hieros.delete_at i
 				end
 
-				$i +=1
+				i +=1
 			 end
 		end
 
 		def remove_unecessary_objs
-			$i = 0
-			while $i < @lista_hieros.length do
-				$hiero = @lista_hieros[$i]
+			i = 0
+			while i < @lista_hieros.length do
+				hiero = @lista_hieros[i]
 
-				if $hiero.box.x < -20
-					@lista_hieros.delete_at $i
+				if hiero.box.x < -20
+					@lista_hieros.delete_at i
 				end
 
-				$i +=1
+				i +=1
 			end
 		end
 end

@@ -22,8 +22,4 @@ class Hiero < GameObject
 	def update
 		move
 	end
-
-	def notifyColision(gameobject)
-		return @box.overlapsWith(gameobject)
-	end
 end
