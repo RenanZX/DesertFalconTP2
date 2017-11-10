@@ -11,14 +11,11 @@ O programa consiste em criar um jogo de tiro 8-bit inspirado no título de mesmo
 4. digite o comando <b>rake</b> e aguarde até que a instalação esteja completa, ao acabar o jogo será executado automaticamente
 
 ## Instruções de Execução dos testes
-1. Certifique-se de que a gema rspec estja instalada utilizando o comando 'gem list -i "rspec"',
-caso contrário instale usando o comando 'gem install rspec'
+1.Siga para a pasta onde está localizado os arquivos do jogo utilizando o terminal
 
-2.Siga para a pasta onde está localizado os arquivos do jogo utilizando o terminal
-
-3.Digite o comando 'rspec spec/bibliotecas/NOME_ARQUIVO', substituindo o NOME_ARQUIVO pelo nome do arquivo
+2.Digite o comando 'rspec spec/bibliotecas/NOME_ARQUIVO', substituindo o NOME_ARQUIVO pelo nome do arquivo
 que se deseja rodar o rspec
 Ex: 'rspec spec/bibliotecas/Falcon_spec.rb'
 
-4.Opcional: pode ser adicionada a flag '--format documentation' para gerar um relatório mais detalhado
+3.Opcional: pode ser adicionada a flag '--format documentation' para gerar um relatório mais detalhado
 Ex: 'rspec spec/bibliotecas/Falcon_spec.rb  --format documentation'
