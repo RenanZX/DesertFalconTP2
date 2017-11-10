@@ -9,6 +9,10 @@ task :verifygosu do
         gem install gosu
         sudo gem install gosu"
 	end
+
+	if !system "gem list -i 'rspec' > /dev/null" then
+		system "sudo gem install rpsec"
+	end
 end
 
 task :executar do
