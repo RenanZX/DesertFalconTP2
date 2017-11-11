@@ -1,7 +1,7 @@
 require 'gosu'
-require "enumerator"
 require_relative "Falcon"
 require_relative "Hiero"
+require_relative "Menu"
 
 class Window < Gosu::Window #classe janela
 	MENU = 0
@@ -18,7 +18,7 @@ class Window < Gosu::Window #classe janela
 		falconZ = 0
 		@player = Falcon.new(falconX, falconY, falconZ)
 		@list_gui_text = Array.new
-		@list_gui_menu = Array.new
+		@menu = Menu.new
 		@estado = MENU
 		initialize_menu
 	end
@@ -28,49 +28,19 @@ class Window < Gosu::Window #classe janela
 		@list_gui_text << gui_text
 	end
 
-	def add_gui_menu(gui_text)
-		@list_gui_menu << gui_text
-	end
-
 	def update
 		case @estado #prototipo ainda em desenvolvimento
 		when MENU #verifica o estado da janela
-			menu = @list_gui_menu	#caso seja o menu ira mostrar o menu para o usuario
-			item = menu.detect{|item| item.valor.include? "> "}
-
-			if Gosu::button_down? Gosu::KB_DOWN and !item.nil? then #usuario seleciona algum item do menu
-				i = menu.index(item)
-				menu[i].valor = menu[i].valor.gsub("> "){"  "}
-				sleep 0.15
-				i+=1
-				if i == menu.length then
-					i=0
-				end
-				menu[i].valor = menu[i].valor.gsub("  "){"> "}
+			valor = @menu.update
+			if valor == "Jogar" then #verifica a opcao que o usuario escolheu
+				@estado = JOGO
+			elsif valor == "Placar" then
+				@estado = PLACAR
+			elsif valor == "Pontuacao" then
+				@estado = PONTO
+			elsif valor == "Sair" then
+				close
 			end
-			if Gosu::button_down? Gosu::KB_UP and !item.nil? then
-				i = menu.index(item)
-				menu[i].valor = menu[i].valor.gsub("> "){"  "}
-				i-=1
-				sleep 0.15
-				menu[i].valor = menu[i].valor.gsub("  "){"> "}
-			end
-			if Gosu::button_down? Gosu::KB_BACKSPACE and !item.nil? then #ao decidir a opcao o usuario apertara backspace
-				valor = item.valor
-				valor = valor.sub("> ","")
-				if valor == "Jogar" then #verifica a opcao que o usuario escolheu
-					@estado = JOGO
-					menu.clear
-					@list_gui_menu.clear
-				elsif valor == "Placar" then
-					@estado = PLACAR
-				elsif valor == "Pontuacao" then
-					@estado = PONTO
-				elsif valor == "Sair" then
-					close
-				end
-			end
-			@list_gui_menu = menu
 		when JOGO
 			@player.update
 
@@ -96,18 +66,26 @@ class Window < Gosu::Window #classe janela
 	end
 
 	def draw #desenha os objetos na tela
-		if (!@imagem_fundo.nil?)
-			@imagem_fundo.draw(0,0,0)
-		end
+		case @estado
+		when MENU
+			@menu.draw
+		when JOGO
+			if (!@imagem_fundo.nil?)
+				@imagem_fundo.draw(0,0,0)
+			end
 		
-		@lista_hieros.each do |hiero|
-			hiero.render 
+			@lista_hieros.each do |hiero|
+				hiero.render 
+			end
+
+			draw_text
+
+			@player.render
+		when PLACAR
+
+		when PONTO
+
 		end
-
-		draw_text
-
-		@player.render
-
 	end
 
 	def button_down(id) #identifica os botoes que sao apertados pelo usuario
@@ -122,27 +100,24 @@ class Window < Gosu::Window #classe janela
 		attr_accessor :estado,:save_position_menu
 
 		def initialize_menu
-			margem_item = 400
-			posicaomenu = 500
+			margem_item = 220
+			posicaomenu = 250
 
-			menuopcao = GUIText.new("> Jogar", posicaomenu, margem_item)
-			add_gui_menu(menuopcao)
+			menuopcao = GUIText.new("Jogar", posicaomenu, margem_item)
+			@menu.add_item(menuopcao,true)
 			margem_item+=20
-			menuopcao = GUIText.new("  Placar", posicaomenu, margem_item)
-			add_gui_menu(menuopcao)
+			menuopcao = GUIText.new("Placar", posicaomenu, margem_item)
+			@menu.add_item(menuopcao)
 			margem_item+=20
-			menuopcao = GUIText.new("  Pontuacao", posicaomenu, margem_item)
-			add_gui_menu(menuopcao)
+			menuopcao = GUIText.new("Pontuacao", posicaomenu, margem_item)
+			@menu.add_item(menuopcao)
 			margem_item+=20
-			menuopcao = GUIText.new("  Sair", posicaomenu, margem_item)
-			add_gui_menu(menuopcao)
+			menuopcao = GUIText.new("Sair", posicaomenu, margem_item)
+			@menu.add_item(menuopcao)
 		end
 
 		def draw_text
 			@list_gui_text.each do |item|
-				item.font.draw(item.valor, item.posx, item.posy, item.posz, 1, 1, item.color)
-			end
-			@list_gui_menu.each do |item|
 				item.font.draw(item.valor, item.posx, item.posy, item.posz, 1, 1, item.color)
 			end
 		end
