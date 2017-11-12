@@ -2,20 +2,20 @@ require 'gosu'
 require "enumerator"
 
 class Menu
-	X_DISTANCE_ITEM = 3
+	X_DISTANCE_ITEM = 3 # distancia de cada item destacado(selecionado) do menu
 	Y_DISTANCE_ITEM = 3
 	def initialize
-		@item_menu = Array.new
-		@logo = Gosu::Image.new("#{File.expand_path(File.dirname(__FILE__))}/media/logo.png")
-		@selection_button = Gosu::KB_BACKSPACE
-		@button_text = GUIText.new("Aperte Backspace para selecionar",180,350)
+		@item_menu = Array.new #array de itens
+		@logo = Gosu::Image.new("#{File.expand_path(File.dirname(__FILE__))}/media/logo.png") #logotipo
+		@selection_button = Gosu::KB_BACKSPACE # butao de selecao
+		@button_text = GUIText.new("Aperte Backspace para selecionar",180,350) #texto que indicara para o usuario o botao para selecionar
 	end
 
-	def setSelectionButton( selection = Gosu::KB_BACKSPACE )
+	def setSelectionButton( selection = Gosu::KB_BACKSPACE ) #funcao que seta um botao diferente do backspace
 		@selection_button = selection
 	end
 
-	def add_item( gui_text, selected = false )
+	def add_item( gui_text, selected = false ) # itens do menu
 		texto = GUIText.new(gui_text.valor, gui_text.posx, gui_text.posy)
 		gui_text.color = Gosu::Color::GRAY
 		if selected == true then
@@ -26,10 +26,10 @@ class Menu
 		@item_menu << texto
 	end
 
-	def update
+	def update #update do menu
 		i = 0
 		selected = nil
-		@item_menu.each_slice(2) do | item_selecionado, item |
+		@item_menu.each_slice(2) do | item_selecionado, item | #muda as posiçoes de acordo com o item selecionado
 		 if item_selecionado.posx > item.posx and item_selecionado.posy > item.posy then
 		 	selected = item_selecionado
 		 end
@@ -72,7 +72,7 @@ class Menu
 		end
 	end
 
-	def draw
+	def draw #desenha o menu na tela
 		if !@logo.nil? then
 			@logo.draw(50,80,0)
 		end
