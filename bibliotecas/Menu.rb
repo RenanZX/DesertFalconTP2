@@ -7,6 +7,12 @@ class Menu
 	def initialize
 		@item_menu = Array.new
 		@logo = Gosu::Image.new("#{File.expand_path(File.dirname(__FILE__))}/media/logo.png")
+		@selection_button = Gosu::KB_BACKSPACE
+		@button_text = GUIText.new("Aperte Backspace para selecionar",180,350)
+	end
+
+	def setSelectionButton( selection = Gosu::KB_BACKSPACE )
+		@selection_button = selection
 	end
 
 	def add_item( gui_text, selected = false )
@@ -58,13 +64,19 @@ class Menu
 			@item_menu[i].posx+=X_DISTANCE_ITEM
 			@item_menu[i].posy+=Y_DISTANCE_ITEM
 		end
-
+		if @button_text.color == Gosu::Color::WHITE then
+			@button_text.color = Gosu::Color::BLACK
+		elsif @button_text.color == Gosu::Color::BLACK then
+			@button_text.color = Gosu::Color::WHITE
+		end
 	end
 
 	def draw
 		if !@logo.nil? then
 			@logo.draw(50,80,0)
 		end
+
+		@button_text.font.draw(@button_text.valor, @button_text.posx, @button_text.posy, @button_text.posz, 1, 1, @button_text.color)
 
 		@item_menu.each do |item|
 			item.font.draw(item.valor, item.posx, item.posy, item.posz, 1, 1, item.color)
