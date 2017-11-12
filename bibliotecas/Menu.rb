@@ -64,6 +64,7 @@ class Menu
 			@item_menu[i].posx+=X_DISTANCE_ITEM
 			@item_menu[i].posy+=Y_DISTANCE_ITEM
 		end
+		#sleep 0.0015
 		if @button_text.color == Gosu::Color::WHITE then
 			@button_text.color = Gosu::Color::BLACK
 		elsif @button_text.color == Gosu::Color::BLACK then

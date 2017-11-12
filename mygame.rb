@@ -21,7 +21,7 @@ class Mygame
 			window.add_hiero(hiero)
 		end
 
-		gui_text = GUIText.new("Aperte 'ESC' para sair", 10, 10, Gosu::Color::GREEN)
+		gui_text = GUIText.new("Aperte 'ESC' para sair do jogo", 10, 10, Gosu::Color::WHITE)
 		window.add_gui_text(gui_text)
 		window.show
 	end

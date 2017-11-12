@@ -90,7 +90,7 @@ class Window < Gosu::Window #classe janela
 
 	def button_down(id) #identifica os botoes que sao apertados pelo usuario
 		if id == Gosu::KB_ESCAPE
-			close
+			@estado = MENU
 		else
 			super
 		end
@@ -109,7 +109,7 @@ class Window < Gosu::Window #classe janela
 			menuopcao = GUIText.new("Placar", posicaomenu, margem_item)
 			@menu.add_item(menuopcao)
 			margem_item+=20
-			menuopcao = GUIText.new("Pontuacao", posicaomenu, margem_item)
+			menuopcao = GUIText.new("Pontuação", posicaomenu, margem_item)
 			@menu.add_item(menuopcao)
 			margem_item+=20
 			menuopcao = GUIText.new("Sair", posicaomenu, margem_item)
