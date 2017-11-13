@@ -9,16 +9,21 @@ class GUIText #elementos da lista de textos
     attr_accessor :font
     attr_accessor :proximo
 
-    def initialize(texto, posX, posY, color = Gosu::Color::WHITE, font = Gosu::Font.new(20))
-        if (font.height > 40 || font.height < 10) 
-			font.height = 20
+    def initialize(texto, posX, posY, color = Gosu::Color::WHITE, tamfont = 20,espec = 1)
+        if (tamfont > 40 || tamfont < 10) then
+			tamfont = 20
 		end
 
-		@font = font
+		@font = Gosu::Font.new(tamfont)
 		@valor = texto
 		@color = color
 		@posx = posX
 		@posy = posY
 		@posz = 0
+        @especura = espec
+    end
+
+    def draw
+        @font.draw(@valor, @posx, @posy, @posz, @especura, @especura, @color)
     end
 end
