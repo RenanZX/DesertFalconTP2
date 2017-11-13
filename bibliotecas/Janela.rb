@@ -159,7 +159,7 @@ class Window < Gosu::Window #classe janela
 
 		def draw_text
 			@list_gui_text.each do |item|
-				item.font.draw(item.valor, item.posx, item.posy, item.posz, 1, 1, item.color)
+				item.draw
 			end
 		end
 

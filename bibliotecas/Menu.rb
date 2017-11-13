@@ -77,10 +77,10 @@ class Menu
 			@logo.draw(50,80,0)
 		end
 
-		@button_text.font.draw(@button_text.valor, @button_text.posx, @button_text.posy, @button_text.posz, 1, 1, @button_text.color)
+		@button_text.draw
 
 		@item_menu.each do |item|
-			item.font.draw(item.valor, item.posx, item.posy, item.posz, 1, 1, item.color)
+			item.draw
 		end
 	end
 end
