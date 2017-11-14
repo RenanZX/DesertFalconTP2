@@ -42,7 +42,7 @@ class GameObject
 	end
 
 	def notity_colision(gameobj)
-		if (@z == gameobj.z)
+		if (@z == gameobj.z) 
 			return @box.overlaps_with gameobj
 		end
 

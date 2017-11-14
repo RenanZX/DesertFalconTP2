@@ -9,6 +9,7 @@ class Falcon < GameObject
 		@shadow = Sprite.new "shadow.png"
 		@velx = 0
 		@vely = 0
+		@velz = 0
 
 		@minX = 35
 		@minY = (480 - 50)
@@ -51,14 +52,16 @@ class Falcon < GameObject
 		end
 
 		def up()
+			@velz = Gosu.offset_y(100, 1)
 			if(@z < 2)
-				@z += 1
+				@z += @velz
 			end	
 		end
 
 		def down()
+			@velz = Gosu.offset_y(100, 1)
 			if(@z > 0)
-				@z -=1
+				@z -= @velz
 			end	
 		end
 
@@ -67,7 +70,8 @@ class Falcon < GameObject
 			@box.y += @vely
 
 			@velx *= 0.75
-			@vely *= 0.75	
+			@vely *= 0.75
+			@velz *= 0.75	
 		end
 
 		def render_shadow
