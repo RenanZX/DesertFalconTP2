@@ -7,8 +7,7 @@ class GUIText #elementos da lista de textos
     attr_accessor :posy
     attr_accessor :posz
     attr_accessor :font
-    attr_accessor :proximo
-
+    
     def initialize(texto, posX, posY, color = Gosu::Color::WHITE, tamfont = 20,espec = 1)
         if (tamfont > 40 || tamfont < 10) then
 			tamfont = 20

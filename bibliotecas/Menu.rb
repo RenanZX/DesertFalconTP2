@@ -16,7 +16,7 @@ class Menu
 	end
 
 	def add_item( gui_text, selected = false ) # itens do menu
-		texto = GUIText.new(gui_text.valor, gui_text.posx, gui_text.posy)
+		texto = gui_text.clone
 		gui_text.color = Gosu::Color::GRAY
 		if selected == true then
 			gui_text.posx += X_DISTANCE_ITEM
