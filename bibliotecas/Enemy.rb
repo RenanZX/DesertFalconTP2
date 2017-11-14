@@ -12,7 +12,7 @@ class Enemy < GameObject
 		@velx = Gosu.offset_x(225, 3)
 		@vely = Gosu.offset_y(225, 3)
 		@box.x += @velx
-		@box.y += @vely 
+		@box.y += @vely
 	end	
 	def update
 		move

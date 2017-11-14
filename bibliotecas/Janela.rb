@@ -17,18 +17,15 @@ class Window < Gosu::Window #classe janela
 		super largura, altura
 		self.caption = "Desert Ruby" #titulo da janela
 
-		@lista_hieros = Array.new()
-		@lista_enemys = Array.new()
-		@lista_obstacles = Array.new()
-		falconX = 80
-		falconY = altura - 150
-		falconZ = 0
-		@player = Falcon.new(falconX, falconY, falconZ)
+		@falconX = 80
+		@falconY = altura - 150
+		@falconZ = 0
+
 		@list_gui_text = Array.new
-		@menu = Menu.new
 		@game_over = GameOver.new
-		@estado = MENU
 		initialize_menu
+		initialize_game
+		@estado = MENU
 	end
 
 	#seta textos na janela recebendo a posicao juntamente com o texto como parametro
@@ -75,7 +72,11 @@ class Window < Gosu::Window #classe janela
 		when PONTO
 
 		when GAME_OVER	
-			@game_over.update
+			if @game_over.update then
+				@estado = MENU
+				clear_game
+				initialize_game
+			end
 		end
 	end
 
@@ -141,6 +142,7 @@ class Window < Gosu::Window #classe janela
 		attr_accessor :estado,:save_position_menu
 
 		def initialize_menu
+			@menu = Menu.new
 			margem_item = 220
 			posicaomenu = 250
 
@@ -155,6 +157,20 @@ class Window < Gosu::Window #classe janela
 			margem_item+=20
 			menuopcao = GUIText.new("Sair", posicaomenu, margem_item)
 			@menu.add_item(menuopcao)
+		end
+
+		def initialize_game
+			@lista_hieros = Array.new()
+			@lista_enemys = Array.new()
+			@lista_obstacles = Array.new()
+			@player = Falcon.new(@falconX, @falconY, @falconZ)
+		end
+
+		def clear_game
+			@lista_hieros.clear
+			@lista_enemys.clear
+			@lista_obstacles.clear
+			@player.close
 		end
 
 		def draw_text

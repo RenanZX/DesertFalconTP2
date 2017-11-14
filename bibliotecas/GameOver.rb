@@ -6,7 +6,8 @@ class GameOver
 	end	
 	def update
 		if Gosu.button_down? Gosu::KB_ENTER or Gosu.button_down? Gosu::KB_BACKSPACE
-			close
+			sleep 0.15
+			return true
 		end	 
 	end
 	def draw
