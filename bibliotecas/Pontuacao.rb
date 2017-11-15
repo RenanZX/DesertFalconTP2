@@ -12,6 +12,7 @@ class Pontuacao
 		@input =  Gosu::TextInput.new
 		@input.text = "Insira um Nome "
 		@output << GUIText.new("Aperte 'Enter' para confirmar",10,10)
+		@placar = GUIText.new("Get #{@pontos} Hieros", 280, 420, Gosu::Color.rgba(255,203,131,255))
 	end
 
 	def draw
@@ -20,6 +21,10 @@ class Pontuacao
 				item.draw
 			end
 		end
+	end
+
+	def draw_points_acquired
+		@placar.draw
 	end
 
 	def update
@@ -36,8 +41,15 @@ class Pontuacao
 			if !@output_txt.nil?
 				Escrever.new(@output_txt,@pontos)
 			end
+			if !@input.nil?
+				@input.text = "Insira um Nome "
+			end
 			return true
 		end
+	end
+
+	def update_points_acquired
+		@placar.valor = "Get #{@pontos} Hieros"
 	end
 end
 

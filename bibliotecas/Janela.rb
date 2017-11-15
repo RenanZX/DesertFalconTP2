@@ -27,7 +27,7 @@ class Window < Gosu::Window #classe janela
 		initialize_game
 		@pontuacao = Pontuacao.new
 		@placar = Placar.new
-		@font_input = @font = Gosu::Font.new(20,name:"Nimbus Mono L")
+		@font_input = Gosu::Font.new(20,name:"Nimbus Mono L")
 		@estado = MENU
 	end
 
@@ -44,8 +44,6 @@ class Window < Gosu::Window #classe janela
 				@estado = JOGO
 			elsif valor == "Placar" then
 				@estado = PLACAR
-			elsif valor == "Pontuacao" then
-				@estado = PONTO
 			elsif valor == "Sair" then
 				close
 			end
@@ -69,6 +67,7 @@ class Window < Gosu::Window #classe janela
 
 			calculate_colisions
 			remove_unecessary_objs
+			@pontuacao.update_points_acquired
 
 		when PLACAR
 			@placar.update
@@ -125,6 +124,7 @@ class Window < Gosu::Window #classe janela
 			end
 
 			draw_text
+			@pontuacao.draw_points_acquired
 
 			@player.render
 		when PLACAR
@@ -163,9 +163,6 @@ class Window < Gosu::Window #classe janela
 			@menu.add_item(menuopcao,true)
 			margem_item+=20
 			menuopcao = GUIText.new("Placar", posicaomenu, margem_item)
-			@menu.add_item(menuopcao)
-			margem_item+=20
-			menuopcao = GUIText.new("Pontuação", posicaomenu, margem_item)
 			@menu.add_item(menuopcao)
 			margem_item+=20
 			menuopcao = GUIText.new("Sair", posicaomenu, margem_item)
@@ -231,7 +228,7 @@ class Window < Gosu::Window #classe janela
 	      			hiero = Hiero.new(rand(680),0,0)
 	      			add_hiero hiero
 	      		elsif(name == 'enemy')
-	      			enemy = Enemy.new(rand(680),0,2)
+	      			enemy = Enemy.new(rand(680),0,rand(0..2))
 	      			add_enemy enemy
 	      		elsif(name == 'obstacle')
 	      			obstacle = Obstacle.new(rand(680),0,0)

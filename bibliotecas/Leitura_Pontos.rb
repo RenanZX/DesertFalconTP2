@@ -52,9 +52,12 @@ class Ler
 		string_Array = string_Array.reverse
 
 		position = 0
+		h = { '|' => '        ','||' => '' }
 
 		string_Array.each do |valor|
-			string = valor.gsub('|',' ')
+			string = valor.gsub(/[|||]/) do |word| 
+				h[word.to_s]
+			end
 			txt = GUIText.new("#{position+1}.#{string}",pos_x,pos_y,Gosu::Color::WHITE,5)
 			pos_y+=20
 			@lista_top_points << txt
