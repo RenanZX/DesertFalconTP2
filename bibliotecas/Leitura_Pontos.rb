@@ -20,7 +20,9 @@ class Ler
 	end
 
 	def clean_variables
-		@arquivo.close unless @arquivo.closed?
+		if !@arquivo.nil? then
+			@arquivo.close unless @arquivo.closed?
+		end
 		@lista_top_points.clear
 	end
 
