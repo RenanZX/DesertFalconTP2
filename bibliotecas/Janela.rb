@@ -135,7 +135,7 @@ class Window < Gosu::Window #classe janela
 		when PONTO
 			@pontuacao.draw
 			if !self.text_input.nil?
-				@font_input.draw("#{self.text_input.text} sua pontuação foi #{@pontuacao.pontos}",180,200,0)
+				@font_input.draw("#{self.text_input.text} você coletou #{@pontuacao.pontos} hieros",180,200,0)
 				@pontuacao.input = self.text_input
 			end
 		end
