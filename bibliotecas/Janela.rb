@@ -5,7 +5,7 @@ require_relative "Menu"
 require_relative "Enemy"
 require_relative "Obstacle"
 require_relative "GameOver"
-
+require_relative "Pontuacao"
 
 class Window < Gosu::Window #classe janela
 	MENU = 0
@@ -25,6 +25,9 @@ class Window < Gosu::Window #classe janela
 		@game_over = GameOver.new
 		initialize_menu
 		initialize_game
+		@pontuacao = Pontuacao.new
+		@placar = Placar.new
+		@font_input = @font = Gosu::Font.new(20,name:"Nimbus Mono L")
 		@estado = MENU
 	end
 
@@ -68,12 +71,18 @@ class Window < Gosu::Window #classe janela
 			remove_unecessary_objs
 
 		when PLACAR
-
+			if @placar.update then
+				@estado = MENU
+			end
 		when PONTO
-
+			self.text_input = @pontuacao.input
+			if @pontuacao.update then
+				@estado = MENU
+				self.text_input = nil
+			end
 		when GAME_OVER	
 			if @game_over.update then
-				@estado = MENU
+				@estado = PONTO
 				clear_game
 				initialize_game
 			end
@@ -121,18 +130,23 @@ class Window < Gosu::Window #classe janela
 
 			@player.render
 		when PLACAR
-
+			@placar.draw
 		when GAME_OVER
 			@game_over.draw	
 
 		when PONTO
-
+			@pontuacao.draw
+			if !self.text_input.nil?
+				@font_input.draw("#{self.text_input.text} sua pontuação foi #{@pontuacao.pontos}",180,200,0)
+				@pontuacao.input = self.text_input
+			end
 		end
 	end
 
 	def button_down(id) #identifica os botoes que sao apertados pelo usuario
 		if id == Gosu::KB_ESCAPE
 			@estado = MENU
+			self.text_input = nil
 		else
 			super
 		end
@@ -184,6 +198,7 @@ class Window < Gosu::Window #classe janela
 			while i < @lista_hieros.length do
 				if (@player.notity_colision @lista_hieros[i])
 					@lista_hieros.delete_at i
+					@pontuacao.pontos+=1
 				end
 				i +=1
 			end
