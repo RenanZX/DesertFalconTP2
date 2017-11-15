@@ -5,7 +5,7 @@ require_relative "Menu"
 require_relative "Enemy"
 require_relative "Obstacle"
 require_relative "GameOver"
-
+require_relative "Pontuacao"
 
 class Window < Gosu::Window #classe janela
 	MENU = 0
@@ -25,6 +25,9 @@ class Window < Gosu::Window #classe janela
 		@game_over = GameOver.new
 		initialize_menu
 		initialize_game
+		@pontuacao = Pontuacao.new
+		@placar = Placar.new
+		@font_input = Gosu::Font.new(20,name:"Nimbus Mono L")
 		@estado = MENU
 	end
 
@@ -41,8 +44,6 @@ class Window < Gosu::Window #classe janela
 				@estado = JOGO
 			elsif valor == "Placar" then
 				@estado = PLACAR
-			elsif valor == "Pontuacao" then
-				@estado = PONTO
 			elsif valor == "Sair" then
 				close
 			end
@@ -66,14 +67,19 @@ class Window < Gosu::Window #classe janela
 
 			calculate_colisions
 			remove_unecessary_objs
+			@pontuacao.update_points_acquired
 
 		when PLACAR
-
+			@placar.update
 		when PONTO
-
+			self.text_input = @pontuacao.input
+			if @pontuacao.update then
+				@estado = MENU
+				self.text_input = nil
+			end
 		when GAME_OVER	
 			if @game_over.update then
-				@estado = MENU
+				@estado = PONTO
 				clear_game
 				initialize_game
 			end
@@ -118,21 +124,28 @@ class Window < Gosu::Window #classe janela
 			end
 
 			draw_text
+			@pontuacao.draw_points_acquired
 
 			@player.render
 		when PLACAR
-
+			@placar.draw
 		when GAME_OVER
 			@game_over.draw	
 
 		when PONTO
-
+			@pontuacao.draw
+			if !self.text_input.nil?
+				@font_input.draw("#{self.text_input.text} você coletou #{@pontuacao.pontos} hieros",180,200,0)
+				@pontuacao.input = self.text_input
+			end
 		end
 	end
 
 	def button_down(id) #identifica os botoes que sao apertados pelo usuario
-		if id == Gosu::KB_ESCAPE
+		case id
+		when Gosu::KB_ESCAPE
 			@estado = MENU
+			self.text_input = nil
 		else
 			super
 		end
@@ -150,9 +163,6 @@ class Window < Gosu::Window #classe janela
 			@menu.add_item(menuopcao,true)
 			margem_item+=20
 			menuopcao = GUIText.new("Placar", posicaomenu, margem_item)
-			@menu.add_item(menuopcao)
-			margem_item+=20
-			menuopcao = GUIText.new("Pontuação", posicaomenu, margem_item)
 			@menu.add_item(menuopcao)
 			margem_item+=20
 			menuopcao = GUIText.new("Sair", posicaomenu, margem_item)
@@ -184,6 +194,7 @@ class Window < Gosu::Window #classe janela
 			while i < @lista_hieros.length do
 				if (@player.notity_colision @lista_hieros[i])
 					@lista_hieros.delete_at i
+					@pontuacao.pontos+=1
 				end
 				i +=1
 			end
@@ -217,7 +228,7 @@ class Window < Gosu::Window #classe janela
 	      			hiero = Hiero.new(rand(680),0,0)
 	      			add_hiero hiero
 	      		elsif(name == 'enemy')
-	      			enemy = Enemy.new(rand(680),0,2)
+	      			enemy = Enemy.new(rand(680),0,rand(0..2))
 	      			add_enemy enemy
 	      		elsif(name == 'obstacle')
 	      			obstacle = Obstacle.new(rand(680),0,0)
