@@ -7,7 +7,6 @@ class Escrever
 			@arquivo = File.new(caminho,'w')
 			@arquivo.puts "#{nome}|#{pontos}||\n"
 		else
-			puts "entrando 3"
 			@arquivo = File.new(caminho,'a')
 			@arquivo << "#{nome}|#{pontos}||\n"
 		end

@@ -21,7 +21,6 @@ class Ler
 
 	def clean_variables
 		@arquivo.close unless @arquivo.closed?
-		@lista_points.clear
 		@lista_top_points.clear
 	end
 
@@ -29,48 +28,36 @@ class Ler
 		if File.exists? @caminho then
 			@arquivo = File.open(@caminho,'r')
 		end
-		@lista_points = Array.new
 		@lista_top_points = Array.new
+		@lista_top_points << GUIText.new("RANKING",30,0,Gosu::Color::WHITE,30)
+		@lista_top_points << GUIText.new("Pressione 'ESC' para sair",320,0,Gosu::Color::WHITE,20)
 	end
+
 	def process_points
 		string_Array = Array.new
 		pos_x = 5
-		pos_y = 5
+		pos_y = 30
 		maior_pontuacao = 0
 		if !@arquivo.nil? then
 			@arquivo.readlines.each do |line|
 				line = line.chomp
-				n = line.index("|").to_i
-				n+=1 
-				m = line.index("||").to_i
-				m+=1
-				pontos = line[n..m].to_i
-				@lista_points << pontos
 				string_Array << line
 			end
 			@arquivo.close unless @arquivo.closed?
 		end
 
-		@lista_points.sort.reverse
+		string_Array = string_Array.sort_by{|item| item.scan(/\d+/).map{|i| i.to_i}}
+		string_Array = string_Array.reverse
 
-		@lista_points.each do |valor|
-			i = 0
-			achou = false
-			while (i != string_Array.length) and (!achou) do
-				n = string_Array[i].index("|").to_i
-				n+=1
-				m = string_Array[i].index("||").to_i
-				m+=1
-				pontos = string_Array[i][n..m].to_i
-				if pontos == valor
-					string = string_Array[i].gsub('|',' ')
-					txt = GUIText.new(string,pos_x,pos_y,Gosu::Color::WHITE,5)
-					pos_y+=20
-					@lista_top_points << txt
-					achou = true
-				end
-				i+=1
-			end
+		position = 0
+
+		string_Array.each do |valor|
+			string = valor.gsub('|',' ')
+			txt = GUIText.new("#{position+1}.#{string}",pos_x,pos_y,Gosu::Color::WHITE,5)
+			pos_y+=20
+			@lista_top_points << txt
+			achou = true
+			position+=1
 		end
 
 	end

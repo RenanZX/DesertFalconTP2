@@ -8,7 +8,7 @@ class Menu
 		@item_menu = Array.new #array de itens
 		@logo = Gosu::Image.new("#{File.expand_path(File.dirname(__FILE__))}/media/logo.png") #logotipo
 		@selection_button = Gosu::KB_BACKSPACE # butao de selecao
-		@button_text = GUIText.new("Aperte Enter para selecionar",180,350) #texto que indicara para o usuario o botao para selecionar
+		@button_text = GUIText.new("Aperte Backspace para selecionar",180,350) #texto que indicara para o usuario o botao para selecionar
 	end
 
 	def setSelectionButton( selection = Gosu::KB_BACKSPACE ) #funcao que seta um botao diferente do backspace
@@ -35,7 +35,7 @@ class Menu
 		 end
 		end
 
-		if Gosu::button_down? Gosu::KB_RETURN and !selected.nil? then
+		if Gosu::button_down? Gosu::KB_BACKSPACE and !selected.nil? then
 			return selected.valor
 		end
 
@@ -64,7 +64,7 @@ class Menu
 			@item_menu[i].posx+=X_DISTANCE_ITEM
 			@item_menu[i].posy+=Y_DISTANCE_ITEM
 		end
-		#sleep 0.0015
+		#sleep 0.25
 		if @button_text.color == Gosu::Color::WHITE then
 			@button_text.color = Gosu::Color::BLACK
 		elsif @button_text.color == Gosu::Color::BLACK then

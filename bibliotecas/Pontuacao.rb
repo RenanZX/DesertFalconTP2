@@ -11,7 +11,7 @@ class Pontuacao
 		@output << GUIText.new("Digite o seu nome: ",170,150)
 		@input =  Gosu::TextInput.new
 		@input.text = "Insira um Nome "
-		@output << GUIText.new("Aperte 'ESC' para confirmar",10,10)
+		@output << GUIText.new("Aperte 'Enter' para confirmar",10,10)
 	end
 
 	def draw
@@ -51,12 +51,6 @@ class Placar
 	end
 
 	def update
-		sleep 0.15
-		if Gosu::button_down? Gosu::KB_RETURN then
-			return true
-		else
-			@leitura.update
-		end
-		
+		@leitura.update
 	end
 end

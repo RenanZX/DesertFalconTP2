@@ -71,9 +71,7 @@ class Window < Gosu::Window #classe janela
 			remove_unecessary_objs
 
 		when PLACAR
-			if @placar.update then
-				@estado = MENU
-			end
+			@placar.update
 		when PONTO
 			self.text_input = @pontuacao.input
 			if @pontuacao.update then
@@ -144,7 +142,8 @@ class Window < Gosu::Window #classe janela
 	end
 
 	def button_down(id) #identifica os botoes que sao apertados pelo usuario
-		if id == Gosu::KB_ESCAPE
+		case id
+		when Gosu::KB_ESCAPE
 			@estado = MENU
 			self.text_input = nil
 		else
