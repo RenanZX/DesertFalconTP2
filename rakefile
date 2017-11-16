@@ -11,7 +11,11 @@ task :verifygosu do
 	end
 
 	if !system "gem list -i 'rspec' > /dev/null" then
-		system "sudo gem install rpsec"
+		system "gem install rpsec"
+	end
+
+	if !system "gem list -i 'rubocop' > /dev/null" then
+		system "gem install rubocop"
 	end
 end
 
