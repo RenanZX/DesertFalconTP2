@@ -1,4 +1,4 @@
-+require 'gosu'
+require 'gosu'
 require_relative 'GameObject'
 require_relative 'Sprite'
 require_relative 'Box'

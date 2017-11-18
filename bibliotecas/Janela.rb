@@ -9,11 +9,15 @@ require_relative 'Pontuacao'
 
  # Classe que representa a janela do jogo
 class Window < Gosu::Window
-  #Variáveis constantes usadas no menu
+  #Variáveis constantes de opção para voltar para menu
   MENU = 0
+  #Variáveis constantes de opção para voltar para ir para o jogo
   JOGO = 1
+  #Variáveis constantes de opção para mostrar placar
   PLACAR = 2
+  #Variáveis constantes de opção para ver pontos
   PONTO = 3
+  #Variáveis constantes de opção quando o jogador perder
   GAME_OVER = 4
 
   # Método construtor d classe Window
@@ -89,22 +93,25 @@ class Window < Gosu::Window
   end
 
   # Método que coloca um arquivo de imagem como fundo da tela
-  # @param [String] nome de um arquivo de imagem
+  # @param [String] nomearquivo de um arquivo de imagem
   def set_background(nomearquivo) 
     @imagem_fundo = Gosu::Image.new("#{__dir__}/media/#{nomearquivo}")
   end
 
-  #Método que adiciona hieros para tela
+  # Método que adiciona hieros para tela
+  # @param hiero [Hiero] hiero que será adicionado
   def add_hiero(hiero)
     @lista_hieros << hiero
   end
 
-  #Método que adiciona inimigos para tela
+  # Método que adiciona inimigos para tela 
+  # @param enemy [Enemy] inimigo que será adicionado
   def add_enemy(enemy)
     @lista_enemys << enemy
   end
 
-  #Método que adiciona obstáculos para tela
+  # Método que adiciona obstáculos para tela
+  # @param obstacle [Obstáculo] obstacle que será adicionado
   def add_obstacle(obstacle)
     @lista_obstacles << obstacle
   end
@@ -224,7 +231,7 @@ class Window < Gosu::Window
   end
 
   # Método que gera um GameObject
-  # @param nome [String] nome do GameObject (hiero, enemy, obstacle)
+  # @param name [String] nome do GameObject (hiero, enemy, obstacle)
   def generate(name)
     if rand(200) < 1
       if name == 'hiero'

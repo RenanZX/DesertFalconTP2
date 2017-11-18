@@ -4,7 +4,7 @@ require 'gosu'
 class Ler
 
   # Método construtor da classe Ler
-  # @param nomeArquivo [String] arquivo que será lido pela classe. ('ranking')
+  # @param nomearquivo [String] nome do arquivo que será lido pela classe. ('ranking')
   def initialize(nomearquivo = 'ranking')
     @caminho = "#{__dir__}/" + nomearquivo
     initialize_variables

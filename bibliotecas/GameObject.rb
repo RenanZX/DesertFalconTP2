@@ -39,7 +39,7 @@ class GameObject
   end
 
   # Método para verificar se um GameObject é igual a outro GameObject
-  # @param gamebj [GameObject] o GameObject que deseja verificar se é igual
+  # @param gameobj [GameObject] o GameObject que deseja verificar se é igual
   # @return [bool] true se ambos GameObject's são iguais. false caso contrário
   def isEqual(gameobj)
     return true if self == gameobj

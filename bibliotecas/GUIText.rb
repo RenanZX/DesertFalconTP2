@@ -1,5 +1,6 @@
 require 'gosu'
 
+#Classe que representa os textos de interface com usuario na tela
 class GUIText 
   # Elementos da lista de textos
   
@@ -17,7 +18,7 @@ class GUIText
   # @param posY [Numeric] coordenada y onde o texto será escrito na tela
   # @param color [Gosu::Color] cor do texto que será escrito na tela
   # @param tamfont [Numeric] tamanho da fonte do texto que será escrito na tela
-  # @param escec [Numeric] espessura do texto que será escrito na tela
+  # @param espec [Numeric] espessura do texto que será escrito na tela
   def initialize(texto, posX, posY, color = Gosu::Color::WHITE, tamfont = 20, espec = 1)
     tamfont = 20 if tamfont > 40 || tamfont < 10
 

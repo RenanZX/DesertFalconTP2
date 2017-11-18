@@ -17,7 +17,7 @@ class Sprite
 
   # Método que renderiza a Sprite na tela
   # @param posX [Numeric] coordenada x de onde a imagem será renderizada na tela
-  # @param posZ [Numeric] coordenada y de onde a imagem será renderizada na tela
+  # @param posY [Numeric] coordenada y de onde a imagem será renderizada na tela
   # @param z [Numeric] coordenada z de onde a imagem será renderizada na tela
   def render(posX = 0, posY = 0, z = 0)
     @imagem.draw(posX, posY, z) unless @imagem.nil?

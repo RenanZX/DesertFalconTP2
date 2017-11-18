@@ -1,9 +1,11 @@
 require 'gosu'
 require 'enumerator'
 
+# Classe que representa menu do jogo
 class Menu
-  # Variáveis que contêm distância de cada item destacado(selecionado) do menu
+  # Variável que contém distância de cada item destacado(selecionado) do menu
   X_DISTANCE_ITEM = 3 
+  # Variável que contém distância y de cada item destacado(selecionado) do menu
   Y_DISTANCE_ITEM = 3
 
   # Método Construtor da classe Menu
