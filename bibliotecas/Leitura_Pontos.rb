@@ -22,7 +22,7 @@ class Ler
     initialize_variables
     process_points
   end
-
+private
   # Método que limpa as variávei de classe
   def clean_variables
     unless @arquivo.nil?
