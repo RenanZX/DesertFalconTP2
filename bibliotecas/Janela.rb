@@ -7,13 +7,19 @@ require_relative 'Obstacle'
 require_relative 'GameOver'
 require_relative 'Pontuacao'
 
-class Window < Gosu::Window # classe janela
+ # Classe que representa a janela do jogo
+class Window < Gosu::Window
+  #Variáveis constantes usadas no menu
   MENU = 0
   JOGO = 1
   PLACAR = 2
   PONTO = 3
   GAME_OVER = 4
-  def initialize(largura, altura) # inicializa a janela recebendo as dimensões como parametro
+
+  # Método construtor d classe Window
+  # @param largura [int] largura da tela
+  # @param altura [int] altura da tela
+  def initialize(largura, altura) 
     super largura, altura
     self.caption = 'Desert Ruby' # titulo da janela
 
@@ -31,11 +37,13 @@ class Window < Gosu::Window # classe janela
     @estado = MENU
   end
 
-  # seta textos na janela recebendo a posicao juntamente com o texto como parametro
+  # Método que adiciona os textos na janela
+  # @param gui_text [GUIText] texto que será adicionado
   def add_gui_text(gui_text)
     @list_gui_text << gui_text
   end
 
+  # Método para verificar a opção escolhida pello usuário
   def update
     case @estado # prototipo ainda em desenvolvimento
     when MENU # verifica o estado da janela
@@ -80,23 +88,29 @@ class Window < Gosu::Window # classe janela
     end
   end
 
-  def set_background(nomearquivo) # recebe um nome de um arquivo de imagem e o coloca como fundo da tela
+  # Método que coloca um arquivo de imagem como fundo da tela
+  # @param [String] nome de um arquivo de imagem
+  def set_background(nomearquivo) 
     @imagem_fundo = Gosu::Image.new("#{__dir__}/media/#{nomearquivo}")
   end
 
+  #Método que adiciona hieros para tela
   def add_hiero(hiero)
     @lista_hieros << hiero
   end
 
+  #Método que adiciona inimigos para tela
   def add_enemy(enemy)
     @lista_enemys << enemy
   end
 
+  #Método que adiciona obstáculos para tela
   def add_obstacle(obstacle)
     @lista_obstacles << obstacle
   end
 
-  def draw # desenha os objetos na tela
+  # Método que desenha os objetos na tela
+  def draw
     case @estado
     when MENU
       @menu.draw
@@ -139,8 +153,10 @@ class Window < Gosu::Window # classe janela
 
   private
 
+  # Métodos de acesso para (:estado, :save_position_menu)
   attr_accessor :estado, :save_position_menu
 
+  # Método que cria o menu
   def initialize_menu
     @menu = Menu.new
     margem_item = 220
@@ -156,6 +172,7 @@ class Window < Gosu::Window # classe janela
     @menu.add_item(menuopcao)
   end
 
+  # Método que inicia o jogo
   def initialize_game
     @lista_hieros = []
     @lista_enemys = []
@@ -163,6 +180,7 @@ class Window < Gosu::Window # classe janela
     @player = Falcon.new(@falconX, @falconY, @falconZ)
   end
 
+  # Método que limpa a tela do jogo
   def clear_game
     @lista_hieros.clear
     @lista_enemys.clear
@@ -170,10 +188,12 @@ class Window < Gosu::Window # classe janela
     @player.close
   end
 
+  # Método que escreve os devidos textos na tela
   def draw_text
     @list_gui_text.each(&:draw)
   end
 
+  # Método que calcula as colisões
   def calculate_colisions
     i = 0
     while i < @lista_hieros.length
@@ -191,6 +211,7 @@ class Window < Gosu::Window # classe janela
     end
   end
 
+  #Método que remove objetos (GameObjects) desnecessários
   def remove_unecessary_objs
     i = 0
     while i < @lista_hieros.length
@@ -202,6 +223,8 @@ class Window < Gosu::Window # classe janela
     end
   end
 
+  # Método que gera um GameObject
+  # @param nome [String] nome do GameObject (hiero, enemy, obstacle)
   def generate(name)
     if rand(200) < 1
       if name == 'hiero'

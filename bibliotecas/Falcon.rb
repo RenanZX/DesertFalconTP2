@@ -1,9 +1,16 @@
-require 'gosu'
++require 'gosu'
 require_relative 'GameObject'
 require_relative 'Sprite'
 require_relative 'Box'
 
+# Entidade que representa o Falcon do jogo
 class Falcon < GameObject
+
+  # Método construtor da Classe Falcon, a sombra da entidade também é criada
+  # @param x [Numeric] - coordenada x da entidade na tela
+  # @param y [Numeric] - coordenada y da entidade na tela
+  # @param z [Numeric] - altura da entidade
+  # @return [GameObject] um novo objeto de Falcon
   def initialize(x, y, z)
     @sprite = Sprite.new 'falcon.png'
     @shadow = Sprite.new 'shadow.png'
@@ -17,6 +24,7 @@ class Falcon < GameObject
     super
   end
 
+  # Método que atualiza a posição do Falcon na tela de acordo com comando do usuário
   def update
     if Gosu.button_down?(Gosu::KB_RIGHT) || Gosu.button_down?(Gosu::GP_RIGHT)
       rigth
@@ -31,6 +39,7 @@ class Falcon < GameObject
     move
   end
 
+  # Renderiza o objeto da entidade Falcon na tela, além da sua sombra
   def render
     render_shadow
     super
@@ -38,6 +47,7 @@ class Falcon < GameObject
 
   private
 
+  # Método de manipulação do objeto de Falcon. Move para a direita
   def rigth
     if @box.y < @minY
       @velx = Gosu.offset_x(135, 5)
@@ -45,6 +55,7 @@ class Falcon < GameObject
     end
   end
 
+  # Método de manipulação do objeto de Falcon. Move para a esquerda
   def left
     if @box.x > @minX
       @velx = Gosu.offset_x(315, 5)
@@ -52,16 +63,19 @@ class Falcon < GameObject
     end
   end
 
+  # Método de manipulação do objeto de Falcon. Move para cima
   def up
     @velz = Gosu.offset_y(100, 1)
     @z += @velz if @z < 2
   end
 
+  # Método de manipulação do objeto de Falcon. Move para baixo
   def down
     @velz = Gosu.offset_y(100, 1)
     @z -= @velz if @z > 0
   end
 
+  # Método que de fato move o objeto de Falcon na tela, alterando suas coordenadas
   def move
     @box.x += @velx
     @box.y += @vely
@@ -71,6 +85,7 @@ class Falcon < GameObject
     @velz *= 0.75
   end
 
+  # Método chamado para renderizar a sombra do objeto de Falcon na tela
   def render_shadow
     @shadow.imagem.draw(@box.x, @box.y, 0)
   end

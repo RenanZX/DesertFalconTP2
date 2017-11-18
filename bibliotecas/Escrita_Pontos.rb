@@ -1,6 +1,11 @@
 require 'gosu'
 
+# Classe que escreve a pontuação na tela
 class Escrever
+  # Método construto da classe Escrever
+  # @param nome [Numeric] - Nome do jogador
+  # @param pontos [Numeric] - pontos conquistados
+  # @param arquivo [String] - 'ranking'
   def initialize(nome, pontos, arquivo = 'ranking')
     caminho = "#{__dir__}/" + arquivo
     if !File.exist? caminho

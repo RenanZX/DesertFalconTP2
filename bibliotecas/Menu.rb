@@ -2,20 +2,32 @@ require 'gosu'
 require 'enumerator'
 
 class Menu
-  X_DISTANCE_ITEM = 3 # distancia de cada item destacado(selecionado) do menu
+  # Variáveis que contêm distância de cada item destacado(selecionado) do menu
+  X_DISTANCE_ITEM = 3 
   Y_DISTANCE_ITEM = 3
+
+  # Método Construtor da classe Menu
   def initialize
-    @item_menu = [] # array de itens
-    @logo = Gosu::Image.new("#{__dir__}/media/logo.png") # logotipo
-    @selection_button = Gosu::KB_BACKSPACE # butao de selecao
-    @button_text = GUIText.new('Aperte Backspace para selecionar', 180, 350) # texto que indicara para o usuario o botao para selecionar
+    # Array de itens
+    @item_menu = [] 
+    # Logotipo
+    @logo = Gosu::Image.new("#{__dir__}/media/logo.png")
+    # Botão de seleção
+    @selection_button = Gosu::KB_BACKSPACE 
+    # Texto que indicará para o usuário o botão para selecionar
+    @button_text = GUIText.new('Aperte Backspace para selecionar', 180, 350) 
   end
 
-  def setSelectionButton(selection = Gosu::KB_BACKSPACE) # funcao que seta um botao diferente do backspace
+  # Função que seta um botão diferente do backspace
+  # @param selection - botão selecionado
+  def setSelectionButton(selection = Gosu::KB_BACKSPACE) 
     @selection_button = selection
   end
 
-  def add_item(gui_text, selected = false) # itens do menu
+  # Método que adiciona itens ao menu
+  # @param gui_text [GUIText] texto que será mostrado
+  # @param selected [boolean] indica se o usuário selecionou algo ou não
+  def add_item(gui_text, selected = false)
     texto = gui_text.clone
     gui_text.color = Gosu::Color::GRAY
     if selected == true
@@ -26,9 +38,11 @@ class Menu
     @item_menu << texto
   end
 
-  def update # update do menu
+  # Atualiza o menu
+  def update 
     selected = nil
-    @item_menu.each_slice(2) do |item_selecionado, item| # muda as posiçoes de acordo com o item selecionado
+    # Muda as posições de acordo com o item selecionado
+    @item_menu.each_slice(2) do |item_selecionado, item| 
       if (item_selecionado.posx > item.posx) && (item_selecionado.posy > item.posy)
         selected = item_selecionado
       end
@@ -67,7 +81,8 @@ class Menu
     end
   end
 
-  def draw # desenha o menu na tela
+  # desenha o menu na tela
+  def draw 
     @logo.draw(50, 80, 0) unless @logo.nil?
 
     @button_text.draw
