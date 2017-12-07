@@ -45,6 +45,6 @@ Ex: 'rake spec Falcon_spec.rb'(Caso queira rodar todos os testes do rspec apenas
 Ex: 'rake spec_documentation Falcon_spec.rb'
 
 
->O motivo pelo qual o SimpleCov não cobriu todos os testes,foi pelo fato de algumas funções possuirem métodos privados, além de que algumas classes precisam que o jogo esteja em execução para que seja possível testar, oque é inviável para alguns metodos do Gosu
+> O motivo pelo qual o SimpleCov não cobriu algumas partes do código,foi pelo fato de algumas funções possuirem métodos privados, além de que algumas classes precisam que o jogo esteja em execução para que seja possível testar, oque é inviável para alguns métodos do Gosu
 
 #### Link do projeto github:https://github.com/RenanZX/DesertFalconTP2
