@@ -19,9 +19,11 @@ O programa consiste em criar um jogo de tiro 8-bit inspirado no título de mesmo
 
 3. Digite o comando 'rake spec <b>NOME_ARQUIVO</b>', substituindo o <b>NOME_ARQUIVO</b> pelo nome do arquivo
 que se deseja rodar o rspec
-Ex: 'rake spec Falcon_spec.rb'(Caso queira rodar todos os testes do rspec apenas ultilize o comando '<b>rake spec</b>')
+Ex: 'rake spec Falcon_spec.rb'(Caso queira rodar todos os testes do rspec apenas ultilize o comando '<b>rake spec</b>',e caso deseje consultar os arquivos de testes use o comando '<b>rake verifyspec</b>')
 
-4. Opcional: pode ser adicionada a flag '--format documentation' para gerar um relatório mais detalhado
-Ex: 'rake spec Falcon_spec.rb  --format documentation'
+4. Opcional: pode-se usar o comando '<b>rake spec_documentation</b>' para gerar um relatório mais detalhado
+Ex: 'rake spec_documentation Falcon_spec.rb'
 
-> O motivo pelo qual o SimpleCov não cobriu todos os testes,foi pelo fato de algumas funções possuirem métodos privados, além de que algumas classes precisam que o jogo estivesse em execução para testar, oque é inviável para alguns metodos do Gosu
+5. Uma pasta coverage será gerada juntamente com um arquivo <b>index.html</b> contendo a cobertura dos casos possíveis de teste
+
+> O motivo pelo qual o SimpleCov não cobriu algumas partes do código,foi pelo fato de alguns módulos possuirem interfaces privadas e inacessíveis para teste, além de que alguns desses módulos precisam que o jogo esteja em execução para que seja possível testar, oque é inviável para alguns métodos do Gosu

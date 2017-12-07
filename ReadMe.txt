@@ -1,11 +1,11 @@
 Universidade de Brasilia 
 Instituto de Ciencias Exatas
 Departamento de Ciencia da Computacao
-TÈcnicas de ProgramaÁ„o 2 ñ 2/2017
+T√©cnicas de Programa√ß√£o 2 ‚Äì 2/2017
 Alunos: Felipe Silva de Sousa Franco
 	Renan Godoi de Medeiros
-	Jo„o Gabriel Lima Neves
-	Matheus Rodrigues Guimar„es
+	Jo√£o Gabriel Lima Neves
+	Matheus Rodrigues Guimar√£es
 
 Matricula:
 	15/0125071
@@ -14,37 +14,37 @@ Matricula:
 	15/0141661
 
 Turma: A
-Vers„o Ruby: ruby 2.3.3p222 (2016-11-21 revision 56859) [i386-mingw32]
+Vers√£o Ruby: ruby 2.3.3p222 (2016-11-21 revision 56859) [i386-mingw32]
 
-#### InstruÁıes de CompilaÁ„o e ExecuÁ„o do programa
+#### Instru√ß√µes de Compila√ß√£o e Execu√ß√£o do programa
 
-1.Certifique-se que o ruby esteja instalado na sua m·quina ultilizando o comando 'ruby -v' 
-caso haja alguma mensagem de erro v· atÈ esta pagina web https://www.ruby-lang.org/pt/documentation/installation/ 
-e instale-o seguindo os procedimentos necess·rios para instalaÁ„o
+1.Certifique-se que o ruby esteja instalado na sua m√°quina ultilizando o comando 'ruby -v' 
+caso haja alguma mensagem de erro v√° at√© esta pagina web https://www.ruby-lang.org/pt/documentation/installation/ 
+e instale-o seguindo os procedimentos necess√°rios para instala√ß√£o
 
 2.Certifique-se de que a gema do rake esteja instalada ultilizando o comando 'gem list -i "rake"',
-caso contr·rio instale usando o comando 'gem install rake'
+caso contr√°rio instale usando o comando 'gem install rake'
 
-3.siga para a pasta onde est· localizado os arquivos do jogo ultilizando o terminal
+3.siga para a pasta onde est√° localizado os arquivos do jogo ultilizando o terminal
 
-4.digite o comando rake e aguarde atÈ que a instalaÁ„o esteja completa, 
-ao acabar o jogo ser· executado automaticamente
+4.digite o comando rake e aguarde at√© que a instala√ß√£o esteja completa, 
+ao acabar o jogo ser√° executado automaticamente
 
-## InstruÁıes de ExecuÁ„o dos testes
-> Caso tenha seguido os passos de compilaÁ„o e execuÁ„o do game, n„o È necessario fazer o passo 1 
+## Instru√ß√µes de Execu√ß√£o dos testes
+> Caso tenha seguido os passos de compila√ß√£o e execu√ß√£o do game, n√£o √© necessario fazer o passo 1 
 
-1. Certifique-se de que as gemas rspec e rake estejam instaladas utilizando o comando <b>'gem list -i "rspec"'</b> e <b>'gem list -i "rake"'</b>, caso contr·rio instale-os usando o comando <b>'gem install rspec'</b> e 'gem install rake'
+1. Certifique-se de que as gemas rspec e rake estejam instaladas utilizando o comando <b>'gem list -i "rspec"'</b> e <b>'gem list -i "rake"'</b>, caso contr√°rio instale-os usando o comando <b>'gem install rspec'</b> e 'gem install rake'
 
-2. Siga para a pasta onde est· localizado os arquivos do jogo utilizando o terminal
+2. Siga para a pasta onde est√° localizado os arquivos do jogo utilizando o terminal
 
 3. Digite o comando 'rake spec <b>NOME_ARQUIVO</b>', substituindo o <b>NOME_ARQUIVO</b> pelo nome do arquivo
 que se deseja rodar o rspec
-Ex: 'rake spec Falcon_spec.rb'(Caso queira rodar todos os testes do rspec apenas ultilize o comando 'rake spec')
+Ex: 'rake spec Falcon_spec.rb'(Caso queira rodar todos os testes do rspec apenas ultilize o comando 'rake spec',e caso deseje consultar os arquivos de testes use o comando 'rake verifyspec')
 
-4. Opcional: pode ser adicionada a flag '--format documentation' para gerar um relatÛrio mais detalhado
-Ex: 'rake spec Falcon_spec.rb  --format documentation'
+4. Opcional: pode-se usar o comando '<b>rake spec_documentation</b>' para gerar um relat√≥rio mais detalhado
+Ex: 'rake spec_documentation Falcon_spec.rb'
 
 
-> O motivo pelo qual o SimpleCov n„o cobriu todos os testes,foi pelo fato de algumas funÁıes possuirem mÈtodos privados, alÈm de que algumas classes precisam que o jogo estivesse em execuÁ„o para testar, oque È invi·vel para alguns metodos do Gosu
+> O motivo pelo qual o SimpleCov n√£o cobriu algumas partes do c√≥digo,foi pelo fato de alguns m√≥dulos possuirem interfaces privadas e inacess√≠veis para teste, al√©m de que alguns desses m√≥dulos precisam que o jogo esteja em execu√ß√£o para que seja poss√≠vel testar, oque √© invi√°vel para alguns m√©todos do Gosu
 
 #### Link do projeto github:https://github.com/RenanZX/DesertFalconTP2

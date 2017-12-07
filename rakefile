@@ -38,4 +38,23 @@ task :spec do
 	else
 		system "rspec spec/bibliotecas/#{ARGV[1]}"
 	end
+	arquivo = 'bibliotecas/ranking'
+	File.delete arquivo if File.exist? arquivo
+end
+
+task :spec_documentation do
+	if ARGV.nil?
+		system "rspec spec/bibliotecas/* --format documentation"
+	else
+		system "rspec spec/bibliotecas/#{ARGV[1]} --format documentation"
+	end
+	arquivo = 'bibliotecas/ranking'
+	File.delete arquivo if File.exist? arquivo
+end
+
+task :verifyspec do
+	Dir["spec/bibliotecas/*"].each do |lib|
+		lib = lib[17..lib.length]
+		puts "#{lib}"
+	end
 end
