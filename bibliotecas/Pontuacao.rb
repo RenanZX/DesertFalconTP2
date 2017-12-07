@@ -61,11 +61,11 @@ class Placar
 
   # Método que desenha a pontuação do usuario na tela
   def draw
-    @leitura.draw
+     @leitura.draw unless @leitura.nil?
   end
 
   # Método que atualiza o ranking na tela
   def update
-    @leitura.update
+    @leitura.update unless @leitura.nil?
   end
 end

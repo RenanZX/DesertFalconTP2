@@ -78,13 +78,13 @@ class Window < Gosu::Window
     when PLACAR
       @placar.update
     when PONTO
-      self.text_input = @pontuacao.input
-      if @pontuacao.update
+      self.text_input = @pontuacao.input unless @pontuacao.nil?
+      if !@pontuacao.nil? && @pontuacao.update
         @estado = MENU
         self.text_input = nil
       end
     when GAME_OVER
-      if @game_over.update
+      if !@game_over.nil? && @game_over.update
         @estado = PONTO
         clear_game
         initialize_game

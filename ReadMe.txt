@@ -30,17 +30,21 @@ caso contrário instale usando o comando 'gem install rake'
 4.digite o comando rake e aguarde até que a instalação esteja completa, 
 ao acabar o jogo será executado automaticamente
 
-### Instruções de Execução dos testes
-1. Certifique-se de que a gema rspec estja instalada utilizando o comando 'gem list -i "rspec"',
-caso contrário instale usando o comando 'gem install rspec'
+## Instruções de Execução dos testes
+> Caso tenha seguido os passos de compilação e execução do game, não é necessario fazer o passo 1 
 
-2.Siga para a pasta onde está localizado os arquivos do jogo utilizando o terminal
+1. Certifique-se de que as gemas rspec e rake estejam instaladas utilizando o comando <b>'gem list -i "rspec"'</b> e <b>'gem list -i "rake"'</b>, caso contrário instale-os usando o comando <b>'gem install rspec'</b> e 'gem install rake'
 
-3.Digite o comando 'rspec spec/bibliotecas/NOME_ARQUIVO', substituindo o NOME_ARQUIVO pelo nome do arquivo
+2. Siga para a pasta onde está localizado os arquivos do jogo utilizando o terminal
+
+3. Digite o comando 'rake spec <b>NOME_ARQUIVO</b>', substituindo o <b>NOME_ARQUIVO</b> pelo nome do arquivo
 que se deseja rodar o rspec
-Ex: 'rspec spec/bibliotecas/Falcon_spec.rb'
+Ex: 'rake spec Falcon_spec.rb'(Caso queira rodar todos os testes do rspec apenas ultilize o comando 'rake spec')
 
-4.Opcional: pode ser adicionada a flag '--format documentation' para gerar um relatório mais detalhado
-Ex: 'rspec spec/bibliotecas/Falcon_spec.rb  --format documentation'
+4. Opcional: pode ser adicionada a flag '--format documentation' para gerar um relatório mais detalhado
+Ex: 'rake spec Falcon_spec.rb  --format documentation'
+
+
+> O motivo pelo qual o SimpleCov não cobriu todos os testes,foi pelo fato de algumas funções possuirem métodos privados, além de que algumas classes precisam que o jogo estivesse em execução para testar, oque é inviável para alguns metodos do Gosu
 
 #### Link do projeto github:https://github.com/RenanZX/DesertFalconTP2

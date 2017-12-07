@@ -52,4 +52,18 @@ describe 'Hiero' do
       expect(hiero.notity_colision(game_object)).to be_falsey
     end
   end
+
+  describe '.move' do
+   it "Verifica a movimentacao do hiero" do
+    hiero = Hiero.new(0, 0, 0)
+    hiero.move
+   end
+  end
+
+  describe '.update' do
+    it "Verifica se o movimento do hiero e atualizado" do
+     hiero = Hiero.new(0, 0, 0)
+     hiero.update
+    end
+  end
 end
