@@ -24,4 +24,6 @@ Ex: 'rake spec Falcon_spec.rb'(Caso queira rodar todos os testes do rspec apenas
 4. Opcional: pode-se usar o comando '<b>rake spec_documentation</b>' para gerar um relatório mais detalhado
 Ex: 'rake spec_documentation Falcon_spec.rb'
 
-> O motivo pelo qual o SimpleCov não cobriu todos os testes,foi pelo fato de algumas funções possuirem métodos privados, além de que algumas classes precisam que o jogo estivesse em execução para testar, oque é inviável para alguns metodos do Gosu
+5. Uma pasta coverage será gerada juntamente com um arquivo <b>index.html</b> contendo a cobertura dos casos possíveis de teste
+
+> O motivo pelo qual o SimpleCov não cobriu todos os testes,foi pelo fato de algumas funções possuirem métodos privados, além de que algumas classes precisam que o jogo esteja em execução para que seja possível testar, oque é inviável para alguns metodos do Gosu
