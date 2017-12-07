@@ -39,10 +39,10 @@ ao acabar o jogo será executado automaticamente
 
 3. Digite o comando 'rake spec <b>NOME_ARQUIVO</b>', substituindo o <b>NOME_ARQUIVO</b> pelo nome do arquivo
 que se deseja rodar o rspec
-Ex: 'rake spec Falcon_spec.rb'(Caso queira rodar todos os testes do rspec apenas ultilize o comando 'rake spec')
+Ex: 'rake spec Falcon_spec.rb'(Caso queira rodar todos os testes do rspec apenas ultilize o comando 'rake spec',e caso deseje consultar os arquivos de testes use o comando 'rake verifyspec')
 
-4. Opcional: pode ser adicionada a flag '--format documentation' para gerar um relatório mais detalhado
-Ex: 'rake spec Falcon_spec.rb  --format documentation'
+4. Opcional: pode-se usar o comando '<b>rake spec_documentation</b>' para gerar um relatório mais detalhado
+Ex: 'rake spec_documentation Falcon_spec.rb'
 
 
 > O motivo pelo qual o SimpleCov não cobriu todos os testes,foi pelo fato de algumas funções possuirem métodos privados, além de que algumas classes precisam que o jogo estivesse em execução para testar, oque é inviável para alguns metodos do Gosu
