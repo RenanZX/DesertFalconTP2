@@ -26,4 +26,4 @@ Ex: 'rake spec_documentation Falcon_spec.rb'
 
 5. Uma pasta coverage será gerada juntamente com um arquivo <b>index.html</b> contendo a cobertura dos casos possíveis de teste
 
-> O motivo pelo qual o SimpleCov não cobriu algumas partes do código,foi pelo fato de alguns módulos possuirem interfaces privadas e inacessíveis para testar, além de que alguns desses módulos precisam que o jogo esteja em execução para que seja possível testar, oque é inviável para alguns métodos do Gosu
+> O motivo pelo qual o SimpleCov não cobriu algumas partes do código,foi pelo fato de alguns módulos possuirem interfaces privadas e inacessíveis para teste, além de que alguns desses módulos precisam que o jogo esteja em execução para que seja possível testar, oque é inviável para alguns métodos do Gosu
