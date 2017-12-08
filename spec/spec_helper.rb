@@ -17,3 +17,5 @@ require_relative '../bibliotecas/Escrita_Pontos'
 require_relative '../bibliotecas/Leitura_Pontos'
 require_relative '../bibliotecas/Pontuacao'
 require 'gosu'
+
+ARQUIVO_TESTE = 'ranking_teste'

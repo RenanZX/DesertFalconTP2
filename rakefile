@@ -38,7 +38,7 @@ task :spec do
 	else
 		system "rspec spec/bibliotecas/#{ARGV[1]}"
 	end
-	arquivo = 'bibliotecas/ranking'
+	arquivo = 'bibliotecas/ranking_teste'
 	File.delete arquivo if File.exist? arquivo
 end
 
@@ -48,7 +48,7 @@ task :spec_documentation do
 	else
 		system "rspec spec/bibliotecas/#{ARGV[1]} --format documentation"
 	end
-	arquivo = 'bibliotecas/ranking'
+	arquivo = 'bibliotecas/ranking_teste'
 	File.delete arquivo if File.exist? arquivo
 end
 
