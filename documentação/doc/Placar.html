@@ -6,7 +6,7 @@
 <title>
   Class: Placar
   
-    &mdash; Documentation by YARD 0.9.9
+    &mdash; Documentation by YARD 0.9.12
   
 </title>
 
@@ -94,7 +94,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>Pontuacao.rb</dd>
+    <dd>Projeto/bibliotecas/Pontuacao.rb</dd>
   </dl>
   
 </div>
@@ -236,7 +236,7 @@
 60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Pontuacao.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Pontuacao.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@leitura</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Ler.html" title="Ler (class)">Ler</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Ler.html#initialize-instance_method" title="Ler#initialize (method)">new</a></span></span>
@@ -284,10 +284,10 @@
 65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Pontuacao.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Pontuacao.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_draw'>draw</span>
-  <span class='ivar'>@leitura</span><span class='period'>.</span><span class='id identifier rubyid_draw'>draw</span>
+   <span class='ivar'>@leitura</span><span class='period'>.</span><span class='id identifier rubyid_draw'>draw</span> <span class='kw'>unless</span> <span class='ivar'>@leitura</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -325,10 +325,10 @@
 70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Pontuacao.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Pontuacao.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
-  <span class='ivar'>@leitura</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span>
+  <span class='ivar'>@leitura</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span> <span class='kw'>unless</span> <span class='ivar'>@leitura</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -340,9 +340,9 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Nov 17 23:06:13 2017 by
+  Generated on Thu Dec  7 22:09:45 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.1).
+  0.9.12 (ruby-2.3.0).
 </div>
 
     </div>

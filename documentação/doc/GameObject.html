@@ -6,7 +6,7 @@
 <title>
   Class: GameObject
   
-    &mdash; Documentation by YARD 0.9.9
+    &mdash; Documentation by YARD 0.9.12
   
 </title>
 
@@ -94,7 +94,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>GameObject.rb</dd>
+    <dd>Projeto/bibliotecas/GameObject.rb</dd>
   </dl>
   
 </div>
@@ -490,7 +490,7 @@
 27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameObject.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/GameObject.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_z'>z</span> <span class='op'>=</span> <span class='int'>0</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_height'>height</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -548,7 +548,7 @@
 10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameObject.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/GameObject.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_box'>box</span>
   <span class='ivar'>@box</span>
@@ -591,7 +591,7 @@
 10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameObject.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/GameObject.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sprite'>sprite</span>
   <span class='ivar'>@sprite</span>
@@ -634,7 +634,7 @@
 10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameObject.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/GameObject.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_z'>z</span>
   <span class='ivar'>@z</span>
@@ -680,7 +680,7 @@
 30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameObject.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/GameObject.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -735,7 +735,7 @@
 51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameObject.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/GameObject.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_isDead'>isDead</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -813,7 +813,7 @@
 47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameObject.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/GameObject.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_isEqual'>isEqual</span><span class='lparen'>(</span><span class='id identifier rubyid_gameobj'>gameobj</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='kw'>self</span> <span class='op'>==</span> <span class='id identifier rubyid_gameobj'>gameobj</span>
@@ -895,7 +895,7 @@
 60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameObject.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/GameObject.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_notity_colision'>notity_colision</span><span class='lparen'>(</span><span class='id identifier rubyid_gameobj'>gameobj</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='ivar'>@box</span><span class='period'>.</span><span class='id identifier rubyid_overlaps_with'>overlaps_with</span> <span class='id identifier rubyid_gameobj'>gameobj</span> <span class='kw'>if</span> <span class='ivar'>@z</span> <span class='op'>==</span> <span class='id identifier rubyid_gameobj'>gameobj</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span>
@@ -939,7 +939,7 @@
 39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameObject.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/GameObject.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_render'>render</span>
   <span class='id identifier rubyid_trueY'>trueY</span> <span class='op'>=</span> <span class='ivar'>@box</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>-</span> <span class='lparen'>(</span><span class='id identifier rubyid_z'>z</span> <span class='op'>*</span> <span class='ivar'>@pixelsHeight</span><span class='rparen'>)</span>
@@ -979,7 +979,7 @@
 33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'GameObject.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/GameObject.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='semicolon'>;</span> <span class='kw'>end</span></pre>
     </td>
@@ -992,9 +992,9 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Nov 17 23:06:13 2017 by
+  Generated on Thu Dec  7 22:09:45 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.1).
+  0.9.12 (ruby-2.3.0).
 </div>
 
     </div>

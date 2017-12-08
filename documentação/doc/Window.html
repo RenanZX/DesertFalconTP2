@@ -6,7 +6,7 @@
 <title>
   Class: Window
   
-    &mdash; Documentation by YARD 0.9.9
+    &mdash; Documentation by YARD 0.9.12
   
 </title>
 
@@ -96,7 +96,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>Janela.rb</dd>
+    <dd>Projeto/bibliotecas/Janela.rb</dd>
   </dl>
   
 </div>
@@ -518,7 +518,7 @@
 42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Janela.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_largura'>largura</span><span class='comma'>,</span> <span class='id identifier rubyid_altura'>altura</span><span class='rparen'>)</span> 
   <span class='kw'>super</span> <span class='id identifier rubyid_largura'>largura</span><span class='comma'>,</span> <span class='id identifier rubyid_altura'>altura</span>
@@ -600,7 +600,7 @@
 111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Janela.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 109</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_enemy'>add_enemy</span><span class='lparen'>(</span><span class='id identifier rubyid_enemy'>enemy</span><span class='rparen'>)</span>
   <span class='ivar'>@lista_enemys</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_enemy'>enemy</span>
@@ -661,7 +661,7 @@
 48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Janela.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_gui_text'>add_gui_text</span><span class='lparen'>(</span><span class='id identifier rubyid_gui_text'>gui_text</span><span class='rparen'>)</span>
   <span class='ivar'>@list_gui_text</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_gui_text'>gui_text</span>
@@ -722,7 +722,7 @@
 105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Janela.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 103</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_hiero'>add_hiero</span><span class='lparen'>(</span><span class='id identifier rubyid_hiero'>hiero</span><span class='rparen'>)</span>
   <span class='ivar'>@lista_hieros</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_hiero'>hiero</span>
@@ -783,7 +783,7 @@
 117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Janela.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 115</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_obstacle'>add_obstacle</span><span class='lparen'>(</span><span class='id identifier rubyid_obstacle'>obstacle</span><span class='rparen'>)</span>
   <span class='ivar'>@lista_obstacles</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_obstacle'>obstacle</span>
@@ -830,7 +830,7 @@
 159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Janela.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 151</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_button_down'>button_down</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span> <span class='comment'># identifica os botoes que sao apertados pelo usuario
 </span>  <span class='kw'>case</span> <span class='id identifier rubyid_id'>id</span>
@@ -904,7 +904,7 @@
 149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Janela.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_draw'>draw</span>
   <span class='kw'>case</span> <span class='ivar'>@estado</span>
@@ -992,7 +992,7 @@
 99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Janela.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_background'>set_background</span><span class='lparen'>(</span><span class='id identifier rubyid_nomearquivo'>nomearquivo</span><span class='rparen'>)</span> 
   <span class='ivar'>@imagem_fundo</span> <span class='op'>=</span> <span class='const'>Gosu</span><span class='op'>::</span><span class='const'>Image</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___dir__'>__dir__</span><span class='embexpr_end'>}</span><span class='tstring_content'>/media/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_nomearquivo'>nomearquivo</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -1073,7 +1073,7 @@
 93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Janela.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='kw'>case</span> <span class='ivar'>@estado</span> <span class='comment'># prototipo ainda em desenvolvimento
@@ -1105,13 +1105,13 @@
   <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="#PLACAR-constant" title="Window::PLACAR (constant)">PLACAR</a></span></span>
     <span class='ivar'>@placar</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span>
   <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="#PONTO-constant" title="Window::PONTO (constant)">PONTO</a></span></span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_text_input'>text_input</span> <span class='op'>=</span> <span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_input'>input</span>
-    <span class='kw'>if</span> <span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_text_input'>text_input</span> <span class='op'>=</span> <span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_input'>input</span> <span class='kw'>unless</span> <span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span>
       <span class='ivar'>@estado</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#MENU-constant" title="Window::MENU (constant)">MENU</a></span></span>
       <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_text_input'>text_input</span> <span class='op'>=</span> <span class='kw'>nil</span>
     <span class='kw'>end</span>
   <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="#GAME_OVER-constant" title="Window::GAME_OVER (constant)">GAME_OVER</a></span></span>
-    <span class='kw'>if</span> <span class='ivar'>@game_over</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span>
+    <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@game_over</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@game_over</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span>
       <span class='ivar'>@estado</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#PONTO-constant" title="Window::PONTO (constant)">PONTO</a></span></span>
       <span class='id identifier rubyid_clear_game'>clear_game</span>
       <span class='id identifier rubyid_initialize_game'>initialize_game</span>
@@ -1128,9 +1128,9 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Nov 17 23:06:13 2017 by
+  Generated on Thu Dec  7 22:09:45 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.1).
+  0.9.12 (ruby-2.3.0).
 </div>
 
     </div>

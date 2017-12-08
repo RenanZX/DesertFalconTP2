@@ -6,7 +6,7 @@
 <title>
   Class: Enemy
   
-    &mdash; Documentation by YARD 0.9.9
+    &mdash; Documentation by YARD 0.9.12
   
 </title>
 
@@ -96,7 +96,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>Enemy.rb</dd>
+    <dd>Projeto/bibliotecas/Enemy.rb</dd>
   </dl>
   
 </div>
@@ -335,7 +335,7 @@
 17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Enemy.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Enemy.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_z'>z</span><span class='rparen'>)</span>
   <span class='ivar'>@sprite</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Sprite.html" title="Sprite (class)">Sprite</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Sprite.html#initialize-instance_method" title="Sprite#initialize (method)">new</a></span></span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>enemy.png</span><span class='tstring_end'>&#39;</span></span>
@@ -388,7 +388,7 @@
 25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Enemy.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Enemy.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_move'>move</span>
   <span class='ivar'>@velx</span> <span class='op'>=</span> <span class='const'>Gosu</span><span class='period'>.</span><span class='id identifier rubyid_offset_x'>offset_x</span><span class='lparen'>(</span><span class='int'>225</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>
@@ -433,7 +433,7 @@
 36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Enemy.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Enemy.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_render'>render</span>
   <span class='id identifier rubyid_render_shadow'>render_shadow</span> <span class='kw'>if</span> <span class='ivar'>@z</span> <span class='op'>!=</span> <span class='int'>0</span>
@@ -475,7 +475,7 @@
 30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Enemy.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Enemy.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='id identifier rubyid_move'>move</span>
@@ -490,9 +490,9 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Nov 17 23:06:13 2017 by
+  Generated on Thu Dec  7 22:09:44 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.1).
+  0.9.12 (ruby-2.3.0).
 </div>
 
     </div>
