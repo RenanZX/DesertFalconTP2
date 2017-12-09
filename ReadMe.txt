@@ -46,6 +46,8 @@ Ex: 'rake spec_documentation Falcon_spec.rb'
 
 > O motivo pelo qual o SimpleCov não cobriu algumas partes do código,foi pelo fato de alguns módulos possuirem interfaces privadas e inacessíveis para teste, além de que alguns desses módulos precisam que o jogo esteja em execução para que seja possível testar, oque é inviável para alguns métodos do Gosu
 
+OBS.:para o critério de teste de cobertura, foi ultilizado o critério por instrução
+
 ##Relatório de cotribuição de cada membro(Trabalho 3)
 Renan Godoi de Medeiros: Atualizou a suite de testes, que ja havia sido criada nos trabalhos anteriores, e fez a cobetura de testes pela ferramenta simpleCov para ruby, atualizou também o rakefile facilitando a execução dos testes
 
