@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Window
+  
+    &mdash; Documentation by YARD 0.9.12
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "Window";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (W)</a> &raquo;
+    
+    
+    <span class="title">Window</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Window
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Gosu::Window</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Gosu::Window</li>
+          
+            <li class="next">Window</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>Projeto/bibliotecas/Janela.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Classe que representa a janela do jogo</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  <dl class="constants">
+    
+      <dt id="MENU-constant" class="">MENU =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>Variáveis constantes de opção para voltar para menu</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='int'>0</span></pre></dd>
+    
+      <dt id="JOGO-constant" class="">JOGO =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>Variáveis constantes de opção para voltar para ir para o jogo</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='int'>1</span></pre></dd>
+    
+      <dt id="PLACAR-constant" class="">PLACAR =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>Variáveis constantes de opção para mostrar placar</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='int'>2</span></pre></dd>
+    
+      <dt id="PONTO-constant" class="">PONTO =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>Variáveis constantes de opção para ver pontos</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='int'>3</span></pre></dd>
+    
+      <dt id="GAME_OVER-constant" class="">GAME_OVER =
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>Variáveis constantes de opção quando o jogador perder</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"><span class='int'>4</span></pre></dd>
+    
+  </dl>
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_enemy-instance_method" title="#add_enemy (instance method)">#<strong>add_enemy</strong>(enemy)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que adiciona inimigos para tela.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_gui_text-instance_method" title="#add_gui_text (instance method)">#<strong>add_gui_text</strong>(gui_text)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que adiciona os textos na janela.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_hiero-instance_method" title="#add_hiero (instance method)">#<strong>add_hiero</strong>(hiero)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que adiciona hieros para tela.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_obstacle-instance_method" title="#add_obstacle (instance method)">#<strong>add_obstacle</strong>(obstacle)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que adiciona obstáculos para tela.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#button_down-instance_method" title="#button_down (instance method)">#<strong>button_down</strong>(id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>identifica os botoes que sao apertados pelo usuario.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#draw-instance_method" title="#draw (instance method)">#<strong>draw</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que desenha os objetos na tela.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(largura, altura)  &#x21d2; Window </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método construtor d classe Window.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_background-instance_method" title="#set_background (instance method)">#<strong>set_background</strong>(nomearquivo)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que coloca um arquivo de imagem como fundo da tela.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método para verificar a opção escolhida pello usuário.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(largura, altura)  &#x21d2; <tt><span class='object_link'><a href="" title="Window (class)">Window</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método construtor d classe Window</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>largura</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>largura da tela</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>altura</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>altura da tela</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_largura'>largura</span><span class='comma'>,</span> <span class='id identifier rubyid_altura'>altura</span><span class='rparen'>)</span> 
+  <span class='kw'>super</span> <span class='id identifier rubyid_largura'>largura</span><span class='comma'>,</span> <span class='id identifier rubyid_altura'>altura</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_caption'>caption</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Desert Ruby</span><span class='tstring_end'>&#39;</span></span> <span class='comment'># titulo da janela
+</span>
+  <span class='ivar'>@falconX</span> <span class='op'>=</span> <span class='int'>80</span>
+  <span class='ivar'>@falconY</span> <span class='op'>=</span> <span class='id identifier rubyid_altura'>altura</span> <span class='op'>-</span> <span class='int'>150</span>
+  <span class='ivar'>@falconZ</span> <span class='op'>=</span> <span class='int'>0</span>
+
+  <span class='ivar'>@list_gui_text</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@game_over</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="GameOver.html" title="GameOver (class)">GameOver</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="GameOver.html#initialize-instance_method" title="GameOver#initialize (method)">new</a></span></span>
+  <span class='id identifier rubyid_initialize_menu'>initialize_menu</span>
+  <span class='id identifier rubyid_initialize_game'>initialize_game</span>
+  <span class='ivar'>@pontuacao</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Pontuacao.html" title="Pontuacao (class)">Pontuacao</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Pontuacao.html#initialize-instance_method" title="Pontuacao#initialize (method)">new</a></span></span>
+  <span class='ivar'>@placar</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Placar.html" title="Placar (class)">Placar</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Placar.html#initialize-instance_method" title="Placar#initialize (method)">new</a></span></span>
+  <span class='ivar'>@font_input</span> <span class='op'>=</span> <span class='const'>Gosu</span><span class='op'>::</span><span class='const'>Font</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>20</span><span class='comma'>,</span> <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Nimbus Mono L</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@estado</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#MENU-constant" title="Window::MENU (constant)">MENU</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="add_enemy-instance_method">
+  
+    #<strong>add_enemy</strong>(enemy)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que adiciona inimigos para tela</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>enemy</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Enemy.html" title="Enemy (class)">Enemy</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>inimigo que será adicionado</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 109</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_enemy'>add_enemy</span><span class='lparen'>(</span><span class='id identifier rubyid_enemy'>enemy</span><span class='rparen'>)</span>
+  <span class='ivar'>@lista_enemys</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_enemy'>enemy</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_gui_text-instance_method">
+  
+    #<strong>add_gui_text</strong>(gui_text)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que adiciona os textos na janela</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>gui_text</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="GUIText.html" title="GUIText (class)">GUIText</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>texto que será adicionado</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_gui_text'>add_gui_text</span><span class='lparen'>(</span><span class='id identifier rubyid_gui_text'>gui_text</span><span class='rparen'>)</span>
+  <span class='ivar'>@list_gui_text</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_gui_text'>gui_text</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_hiero-instance_method">
+  
+    #<strong>add_hiero</strong>(hiero)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que adiciona hieros para tela</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>hiero</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hiero.html" title="Hiero (class)">Hiero</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hiero que será adicionado</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_hiero'>add_hiero</span><span class='lparen'>(</span><span class='id identifier rubyid_hiero'>hiero</span><span class='rparen'>)</span>
+  <span class='ivar'>@lista_hieros</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_hiero'>hiero</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_obstacle-instance_method">
+  
+    #<strong>add_obstacle</strong>(obstacle)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que adiciona obstáculos para tela</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>obstacle</span>
+      
+      
+        <span class='type'>(<tt>Obstáculo</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>obstacle que será adicionado</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 115</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_obstacle'>add_obstacle</span><span class='lparen'>(</span><span class='id identifier rubyid_obstacle'>obstacle</span><span class='rparen'>)</span>
+  <span class='ivar'>@lista_obstacles</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_obstacle'>obstacle</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="button_down-instance_method">
+  
+    #<strong>button_down</strong>(id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>identifica os botoes que sao apertados pelo usuario</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+151
+152
+153
+154
+155
+156
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 151</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_button_down'>button_down</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span> <span class='comment'># identifica os botoes que sao apertados pelo usuario
+</span>  <span class='kw'>case</span> <span class='id identifier rubyid_id'>id</span>
+  <span class='kw'>when</span> <span class='const'>Gosu</span><span class='op'>::</span><span class='const'>KB_ESCAPE</span>
+    <span class='ivar'>@estado</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#MENU-constant" title="Window::MENU (constant)">MENU</a></span></span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_text_input'>text_input</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>else</span>
+    <span class='kw'>super</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="draw-instance_method">
+  
+    #<strong>draw</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que desenha os objetos na tela</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 120</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_draw'>draw</span>
+  <span class='kw'>case</span> <span class='ivar'>@estado</span>
+  <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="#MENU-constant" title="Window::MENU (constant)">MENU</a></span></span>
+    <span class='ivar'>@menu</span><span class='period'>.</span><span class='id identifier rubyid_draw'>draw</span>
+  <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="#JOGO-constant" title="Window::JOGO (constant)">JOGO</a></span></span>
+    <span class='ivar'>@imagem_fundo</span><span class='period'>.</span><span class='id identifier rubyid_draw'>draw</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@imagem_fundo</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+    <span class='ivar'>@lista_hieros</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:render</span><span class='rparen'>)</span>
+
+    <span class='ivar'>@lista_enemys</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:render</span><span class='rparen'>)</span>
+
+    <span class='ivar'>@lista_obstacles</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:render</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_draw_text'>draw_text</span>
+    <span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_draw_points_acquired'>draw_points_acquired</span>
+
+    <span class='ivar'>@player</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span>
+  <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="#PLACAR-constant" title="Window::PLACAR (constant)">PLACAR</a></span></span>
+    <span class='ivar'>@placar</span><span class='period'>.</span><span class='id identifier rubyid_draw'>draw</span>
+  <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="#GAME_OVER-constant" title="Window::GAME_OVER (constant)">GAME_OVER</a></span></span>
+    <span class='ivar'>@game_over</span><span class='period'>.</span><span class='id identifier rubyid_draw'>draw</span>
+
+  <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="#PONTO-constant" title="Window::PONTO (constant)">PONTO</a></span></span>
+    <span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_draw'>draw</span>
+    <span class='kw'>unless</span> <span class='id identifier rubyid_text_input'>text_input</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+      <span class='ivar'>@font_input</span><span class='period'>.</span><span class='id identifier rubyid_draw'>draw</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_text_input'>text_input</span><span class='period'>.</span><span class='id identifier rubyid_text'>text</span><span class='embexpr_end'>}</span><span class='tstring_content'> você coletou </span><span class='embexpr_beg'>#{</span><span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_pontos'>pontos</span><span class='embexpr_end'>}</span><span class='tstring_content'> hieros</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>180</span><span class='comma'>,</span> <span class='int'>200</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+      <span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_input'>input</span> <span class='op'>=</span> <span class='id identifier rubyid_text_input'>text_input</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_background-instance_method">
+  
+    #<strong>set_background</strong>(nomearquivo)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que coloca um arquivo de imagem como fundo da tela</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>nomearquivo</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>de um arquivo de imagem</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_background'>set_background</span><span class='lparen'>(</span><span class='id identifier rubyid_nomearquivo'>nomearquivo</span><span class='rparen'>)</span> 
+  <span class='ivar'>@imagem_fundo</span> <span class='op'>=</span> <span class='const'>Gosu</span><span class='op'>::</span><span class='const'>Image</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid___dir__'>__dir__</span><span class='embexpr_end'>}</span><span class='tstring_content'>/media/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_nomearquivo'>nomearquivo</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update-instance_method">
+  
+    #<strong>update</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método para verificar a opção escolhida pello usuário</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Projeto/bibliotecas/Janela.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
+  <span class='kw'>case</span> <span class='ivar'>@estado</span> <span class='comment'># prototipo ainda em desenvolvimento
+</span>  <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="#MENU-constant" title="Window::MENU (constant)">MENU</a></span></span> <span class='comment'># verifica o estado da janela
+</span>    <span class='id identifier rubyid_valor'>valor</span> <span class='op'>=</span> <span class='ivar'>@menu</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_valor'>valor</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Jogar</span><span class='tstring_end'>&#39;</span></span> <span class='comment'># verifica a opcao que o usuario escolheu
+</span>      <span class='ivar'>@estado</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#JOGO-constant" title="Window::JOGO (constant)">JOGO</a></span></span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_valor'>valor</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Placar</span><span class='tstring_end'>&#39;</span></span>
+      <span class='ivar'>@estado</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#PLACAR-constant" title="Window::PLACAR (constant)">PLACAR</a></span></span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_valor'>valor</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Sair</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_close'>close</span>
+    <span class='kw'>end</span>
+  <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="#JOGO-constant" title="Window::JOGO (constant)">JOGO</a></span></span>
+    <span class='ivar'>@player</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span>
+    <span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>hiero</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>enemy</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>obstacle</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+    <span class='ivar'>@lista_hieros</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:update</span><span class='rparen'>)</span>
+
+    <span class='ivar'>@lista_enemys</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:update</span><span class='rparen'>)</span>
+
+    <span class='ivar'>@lista_obstacles</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:update</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_calculate_colisions'>calculate_colisions</span>
+    <span class='id identifier rubyid_remove_unecessary_objs'>remove_unecessary_objs</span>
+    <span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_update_points_acquired'>update_points_acquired</span>
+
+  <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="#PLACAR-constant" title="Window::PLACAR (constant)">PLACAR</a></span></span>
+    <span class='ivar'>@placar</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span>
+  <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="#PONTO-constant" title="Window::PONTO (constant)">PONTO</a></span></span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_text_input'>text_input</span> <span class='op'>=</span> <span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_input'>input</span> <span class='kw'>unless</span> <span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@pontuacao</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span>
+      <span class='ivar'>@estado</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#MENU-constant" title="Window::MENU (constant)">MENU</a></span></span>
+      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_text_input'>text_input</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='kw'>end</span>
+  <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="#GAME_OVER-constant" title="Window::GAME_OVER (constant)">GAME_OVER</a></span></span>
+    <span class='kw'>if</span> <span class='op'>!</span><span class='ivar'>@game_over</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@game_over</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span>
+      <span class='ivar'>@estado</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#PONTO-constant" title="Window::PONTO (constant)">PONTO</a></span></span>
+      <span class='id identifier rubyid_clear_game'>clear_game</span>
+      <span class='id identifier rubyid_initialize_game'>initialize_game</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Thu Dec  7 22:09:45 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.12 (ruby-2.3.0).
+</div>
+
+    </div>
+  </body>
+</html>
