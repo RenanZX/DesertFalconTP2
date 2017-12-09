@@ -5,12 +5,14 @@ require_relative 'bibliotecas/Falcon'
 require_relative 'bibliotecas/GUIText'
 require_relative 'bibliotecas/Enemy'
 
+#Classe responsável pela tela do jogo
 class Mygame
   def initialize(sizeX, sizeY)
     @tamX  =  sizeX
     @tamY  =  sizeY
   end
-
+	
+  #Executa o a tela de jogo 
   def executar
     window = Window.new(@tamX, @tamY) # define o tamanho da tela
     window.set_background('cenario.png')
