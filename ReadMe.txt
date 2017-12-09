@@ -44,7 +44,13 @@ Ex: 'rake spec Falcon_spec.rb'(Caso queira rodar todos os testes do rspec apenas
 4. Opcional: pode-se usar o comando '<b>rake spec_documentation</b>' para gerar um relatório mais detalhado
 Ex: 'rake spec_documentation Falcon_spec.rb'
 
-
 > O motivo pelo qual o SimpleCov não cobriu algumas partes do código,foi pelo fato de alguns módulos possuirem interfaces privadas e inacessíveis para teste, além de que alguns desses módulos precisam que o jogo esteja em execução para que seja possível testar, oque é inviável para alguns métodos do Gosu
+
+##Relatório de cotribuição de cada membro(Trabalho 3)
+Renan Godoi de Medeiros: Atualizou a suite de testes, que ja havia sido criada nos trabalhos anteriores, e fez a cobetura de testes pela ferramenta simpleCov para ruby, atualizou também o rakefile facilitando a execução dos testes
+
+Matheus Rodrigues Guimarães: Documentou o código e a suite de testes, e ultilizando a ferramenta Yard gerou os documentos html explicando a função de cada módulo e interface
+
+João Gabriel Lima Neves: Gerou os grafos ultilizando a ferramenta Yard
 
 #### Link do projeto github:https://github.com/RenanZX/DesertFalconTP2
